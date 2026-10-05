@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {{ page.title }} · {{ site.title }}
+    </title>
+
+    <meta name="description"
+          content="{{ site.description }}">
+
+    <link rel="stylesheet"
+          href="{{ '/style.css' | relative_url }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="{{ '/' | relative_url }}"
+           class="logo">
+            AP
+        </a>
+
+        <div class="nav-links">
+
+            <a href="{{ '/' | relative_url }}">
+                About
+            </a>
+
+            <a href="{{ '/research' | relative_url }}">
+                Research
+            </a>
+
+            <a href="{{ '/notes' | relative_url }}">
+                Notes
+            </a>
+
+            <a href="{{ '/projects' | relative_url }}">
+                Projects
+            </a>
+
+            <a href="{{ '/cv.pdf' | relative_url }}">
+                CV
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    {{ content }}
+
+</main>
+
+
+<footer>
+
+    <div class="footer-links">
+
+        <a href="https://github.com/YOUR-USERNAME">
+            GitHub
+        </a>
+
+        <a href="YOUR-LINKEDIN-URL">
+            LinkedIn
+        </a>
+
+        <a href="mailto:YOUR-EMAIL">
+            Email
+        </a>
+
+    </div>
+
+    <p>
+        © 2026 {{ site.title }}
+    </p>
+
+</footer>
+
+</body>
+
+</html>
