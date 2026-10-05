@@ -7,7 +7,7 @@
     <title>{% if page.title and page.title != 'Home' %}{{ page.title }} · {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description | escape }}">
     <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#ffffff" id="theme-color-meta">
+    <meta name="theme-color" content="#f7f5f1" id="theme-color-meta">
 
     <meta property="og:type" content="{% if page.layout == 'note' %}article{% else %}website{% endif %}">
     <meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} · {% endif %}{{ site.title }}">
@@ -18,31 +18,32 @@
         (function () {
             const savedTheme = localStorage.getItem('theme');
             const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-            document.documentElement.dataset.theme = theme;
+            document.documentElement.dataset.theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
         })();
     </script>
 
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
-
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
 
 <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-        <a href="{{ '/' | relative_url }}" class="logo" aria-label="{{ site.title }} home">AP</a>
+        <a href="{{ '/' | relative_url }}" class="brand" aria-label="{{ site.title }} home">
+            <span class="brand-full">Parastoo Afshar</span>
+            <span class="brand-short">PA</span>
+        </a>
 
         <div class="nav-right">
             <div class="nav-links">
                 <a href="{{ '/#about' | relative_url }}">About</a>
-                <a class="nav-mobile-secondary" href="{{ '/#research' | relative_url }}">Research</a>
+                <a href="{{ '/#research' | relative_url }}">Research</a>
                 <a href="{{ '/notes/' | relative_url }}">Notes</a>
-                {% if site.cv_url and site.cv_url != '' %}<a class="nav-mobile-secondary" href="{{ site.cv_url }}">CV</a>{% endif %}
             </div>
 
-            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
-                <span class="theme-icon" aria-hidden="true"></span>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+                <span class="theme-symbol" id="theme-symbol" aria-hidden="true">☾</span>
+                <span class="theme-label" id="theme-label">Dark</span>
             </button>
         </div>
     </nav>
@@ -54,12 +55,13 @@
 
 <footer class="site-footer">
     <div class="footer-inner">
-        <div class="footer-links">
-            {% if site.github_url and site.github_url != '' %}<a href="{{ site.github_url }}" rel="me">GitHub</a>{% endif %}
-            {% if site.linkedin_url and site.linkedin_url != '' %}<a href="{{ site.linkedin_url }}" rel="me">LinkedIn</a>{% endif %}
-            {% if site.email and site.email != '' %}<a href="mailto:{{ site.email }}">Email</a>{% endif %}
-        </div>
         <p>© {{ 'now' | date: '%Y' }} {{ site.title }}</p>
+        <div class="footer-links">
+            {% if site.github_url and site.github_url != '' %}<a href="{{ site.github_url }}" rel="me">GitHub ↗</a>{% endif %}
+            {% if site.linkedin_url and site.linkedin_url != '' %}<a href="{{ site.linkedin_url }}" rel="me">LinkedIn ↗</a>{% endif %}
+            {% if site.email and site.email != '' %}<a href="mailto:{{ site.email }}">Email ↗</a>{% endif %}
+            {% if site.cv_url and site.cv_url != '' %}<a href="{{ site.cv_url }}">CV ↗</a>{% endif %}
+        </div>
     </div>
 </footer>
 

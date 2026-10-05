@@ -1,6 +1,8 @@
 (function () {
     const root = document.documentElement;
     const toggle = document.getElementById('theme-toggle');
+    const label = document.getElementById('theme-label');
+    const symbol = document.getElementById('theme-symbol');
     const themeMeta = document.getElementById('theme-color-meta');
     const media = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -8,27 +10,29 @@
     const savedTheme = () => localStorage.getItem('theme');
     const currentTheme = () => root.dataset.theme || savedTheme() || systemTheme();
 
-    const applyTheme = (theme, persist) => {
+    function render(theme, persist) {
         root.dataset.theme = theme;
         if (persist) localStorage.setItem('theme', theme);
-        if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#111214' : '#ffffff');
-        if (toggle) {
-            const nextTheme = theme === 'dark' ? 'light' : 'dark';
-            toggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
-            toggle.setAttribute('title', `Switch to ${nextTheme} theme`);
-        }
-    };
 
-    applyTheme(currentTheme(), false);
+        const dark = theme === 'dark';
+        if (label) label.textContent = dark ? 'Light' : 'Dark';
+        if (symbol) symbol.textContent = dark ? '☀' : '☾';
+        if (toggle) {
+            toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+            toggle.setAttribute('title', dark ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+        if (themeMeta) themeMeta.setAttribute('content', dark ? '#101114' : '#f7f5f1');
+    }
+
+    render(currentTheme(), false);
 
     if (toggle) {
-        toggle.addEventListener('click', () => {
-            const nextTheme = currentTheme() === 'dark' ? 'light' : 'dark';
-            applyTheme(nextTheme, true);
+        toggle.addEventListener('click', function () {
+            render(currentTheme() === 'dark' ? 'light' : 'dark', true);
         });
     }
 
-    media.addEventListener('change', () => {
-        if (!savedTheme()) applyTheme(systemTheme(), false);
+    media.addEventListener('change', function () {
+        if (!savedTheme()) render(systemTheme(), false);
     });
 })();

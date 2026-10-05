@@ -1,9 +1,8 @@
 title: "Parastoo Afshar"
-description: "M.Sc. student in Software Engineering · Research notes on Large Language Models and AI for Software Engineering"
+description: "Personal academic website · Research notes on Large Language Models, Artificial Intelligence, and Software Engineering"
 url: "https://parastooafshar.github.io"
 baseurl: ""
 
-# Public links. Leave a value empty to hide that link automatically.
 github_url: "https://github.com/parastooafshar"
 linkedin_url: ""
 email: ""
