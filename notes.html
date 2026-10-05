@@ -1,0 +1,41 @@
+---
+layout: default
+title: Notes
+permalink: /notes/
+description: "Research notes, paper summaries, thesis logs, and technical observations."
+---
+
+<section class="page-hero">
+    <p class="eyebrow">Research log</p>
+    <h1>Notes</h1>
+    <p class="intro">
+        Paper summaries, thesis logs, experiments, and technical notes. Some entries may be written in Persian when that better fits the audience.
+    </p>
+</section>
+
+<section class="notes-index">
+    {% assign sorted_notes = site.notes | where_exp: "note", "note.published != false" | sort: 'date' | reverse %}
+
+    {% if sorted_notes.size > 0 %}
+        <div class="note-list">
+            {% for note in sorted_notes %}
+                <article class="note-row">
+                    <div>
+                        <p class="card-meta">
+                            {% if note.date %}{{ note.date | date: "%b %d, %Y" }}{% endif %}
+                            {% if note.tags %} · {{ note.tags | join: " · " }}{% endif %}
+                        </p>
+                        <h2><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h2>
+                        {% if note.description %}<p>{{ note.description }}</p>{% endif %}
+                    </div>
+                    <a class="note-arrow" href="{{ note.url | relative_url }}" aria-label="Read {{ note.title }}">→</a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <p>No published notes yet.</p>
+            <p>The first paper notes and thesis updates will appear here.</p>
+        </div>
+    {% endif %}
+</section>

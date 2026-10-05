@@ -1,12 +1,32 @@
 title: "Parastoo Afshar"
-description: "M.Sc. Student in Software Engineering"
+description: "M.Sc. student in Software Engineering · Research notes on Large Language Models and AI for Software Engineering"
 url: "https://parastooafshar.github.io"
+baseurl: ""
 
-theme: null
+# Public links. Leave a value empty to hide that link automatically.
+github_url: "https://github.com/parastooafshar"
+linkedin_url: ""
+email: ""
+cv_url: ""
 
 markdown: kramdown
+permalink: pretty
 
 collections:
   notes:
     output: true
     permalink: /notes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: note
+      lang: en
+      dir: ltr
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

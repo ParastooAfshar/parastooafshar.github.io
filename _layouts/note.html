@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<article class="note-page">
+    <a class="back-link" href="{{ '/notes/' | relative_url }}">← All notes</a>
+
+    <header class="note-header">
+        <p class="card-meta">
+            {% if page.date %}{{ page.date | date: "%B %d, %Y" }}{% endif %}
+            {% if page.tags %} · {{ page.tags | join: " · " }}{% endif %}
+        </p>
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}<p class="intro">{{ page.description }}</p>{% endif %}
+    </header>
+
+    <div class="prose" lang="{{ page.lang | default: 'en' }}" dir="{{ page.dir | default: 'ltr' }}">
+        {{ content }}
+    </div>
+</article>

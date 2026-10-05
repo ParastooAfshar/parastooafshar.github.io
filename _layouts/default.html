@@ -1,96 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="{{ page.lang | default: 'en' }}" dir="{{ page.dir | default: 'ltr' }}" data-theme="light">
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title and page.title != 'Home' %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" id="theme-color-meta">
 
-    <title>
-        {{ page.title }} · {{ site.title }}
-    </title>
+    <meta property="og:type" content="{% if page.layout == 'note' %}article{% else %}website{% endif %}">
+    <meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} · {% endif %}{{ site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
 
-    <meta name="description"
-          content="{{ site.description }}">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
 
-    <link rel="stylesheet"
-          href="{{ '/style.css' | relative_url }}">
-
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 
 <body>
+<a class="skip-link" href="#content">Skip to content</a>
 
-<header>
+<header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}" class="logo" aria-label="{{ site.title }} home">AP</a>
 
-    <nav class="navbar">
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="{{ '/#about' | relative_url }}">About</a>
+                <a class="nav-mobile-secondary" href="{{ '/#research' | relative_url }}">Research</a>
+                <a href="{{ '/notes/' | relative_url }}">Notes</a>
+                {% if site.cv_url and site.cv_url != '' %}<a class="nav-mobile-secondary" href="{{ site.cv_url }}">CV</a>{% endif %}
+            </div>
 
-        <a href="{{ '/' | relative_url }}"
-           class="logo">
-            AP
-        </a>
-
-        <div class="nav-links">
-
-            <a href="{{ '/' | relative_url }}">
-                About
-            </a>
-
-            <a href="{{ '/research' | relative_url }}">
-                Research
-            </a>
-
-            <a href="{{ '/notes' | relative_url }}">
-                Notes
-            </a>
-
-            <a href="{{ '/projects' | relative_url }}">
-                Projects
-            </a>
-
-            <a href="{{ '/cv.pdf' | relative_url }}">
-                CV
-            </a>
-
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+                <span class="theme-icon" aria-hidden="true"></span>
+            </button>
         </div>
-
     </nav>
-
 </header>
 
-
-<main>
-
+<main id="content">
     {{ content }}
-
 </main>
 
-
-<footer>
-
-    <div class="footer-links">
-
-        <a href="https://github.com/YOUR-USERNAME">
-            GitHub
-        </a>
-
-        <a href="YOUR-LINKEDIN-URL">
-            LinkedIn
-        </a>
-
-        <a href="mailto:YOUR-EMAIL">
-            Email
-        </a>
-
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-links">
+            {% if site.github_url and site.github_url != '' %}<a href="{{ site.github_url }}" rel="me">GitHub</a>{% endif %}
+            {% if site.linkedin_url and site.linkedin_url != '' %}<a href="{{ site.linkedin_url }}" rel="me">LinkedIn</a>{% endif %}
+            {% if site.email and site.email != '' %}<a href="mailto:{{ site.email }}">Email</a>{% endif %}
+        </div>
+        <p>© {{ 'now' | date: '%Y' }} {{ site.title }}</p>
     </div>
-
-    <p>
-        © 2026 {{ site.title }}
-    </p>
-
 </footer>
 
+<script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 </body>
-
 </html>
