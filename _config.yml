@@ -1,0 +1,12 @@
+title: "Parastoo Afshar"
+description: "M.Sc. Student in Software Engineering"
+url: "https://parastooafshar.github.io"
+
+theme: null
+
+markdown: kramdown
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:name/
