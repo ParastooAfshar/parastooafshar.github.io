@@ -4,7 +4,6 @@
     dir="{{ page.dir | default: 'ltr' }}"
     data-theme="light"
 >
-
 <head>
     <meta charset="UTF-8">
 
@@ -14,7 +13,7 @@
     >
 
     <title>
-        {% if page.title and page.title != 'Home' %}
+        {% if page.title and page.title != "Home" %}
             {{ page.title }} ·
         {% endif %}
         {{ site.title }}
@@ -56,6 +55,7 @@
     <script>
         (function () {
             const savedTheme = localStorage.getItem("theme");
+
             const systemPrefersDark = window.matchMedia(
                 "(prefers-color-scheme: dark)"
             ).matches;
@@ -75,90 +75,90 @@
 
 <body>
 
-<a class="skip-link" href="#content">
-    Skip to content
-</a>
+    <a class="skip-link" href="#content">
+        Skip to content
+    </a>
 
 
-<header class="site-header">
+    <header class="site-header">
 
-    <nav
-        class="navbar"
-        aria-label="Main navigation"
-    >
-
-        <a
-            class="brand"
-            href="{{ '/' | relative_url }}"
-            aria-label="Home"
+        <nav
+            class="navbar"
+            aria-label="Main navigation"
         >
-            AP
-        </a>
+
+            <a
+                class="brand"
+                href="{{ '/' | relative_url }}"
+                aria-label="Parastoo Afshar — Home"
+            >
+                AP
+            </a>
 
 
-        <div class="nav-right">
+            <div class="nav-right">
 
-            <div class="nav-links">
+                <div class="nav-links">
 
-                <a href="{{ '/#research' | relative_url }}">
-                    Research
-                </a>
+                    <a href="{{ '/#research' | relative_url }}">
+                        Research
+                    </a>
 
-                <a href="{{ '/notes/' | relative_url }}">
-                    Notes
-                </a>
+                    <a href="{{ '/notes/' | relative_url }}">
+                        Notes
+                    </a>
+
+                </div>
+
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    type="button"
+                    aria-label="Switch color theme"
+                >
+                    <span
+                        class="theme-symbol"
+                        id="theme-symbol"
+                        aria-hidden="true"
+                    >
+                        ☾
+                    </span>
+
+                    <span
+                        class="theme-label"
+                        id="theme-label"
+                    >
+                        Dark
+                    </span>
+                </button>
 
             </div>
 
+        </nav>
 
-            <button
-                class="theme-toggle"
-                id="theme-toggle"
-                type="button"
-                aria-label="Switch color theme"
-            >
-                <span
-                    class="theme-symbol"
-                    id="theme-symbol"
-                    aria-hidden="true"
-                >
-                    ☾
-                </span>
+    </header>
 
-                <span
-                    class="theme-label"
-                    id="theme-label"
-                >
-                    Dark
-                </span>
-            </button>
+
+    <main id="content">
+        {{ content }}
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <p>
+                © {{ 'now' | date: '%Y' }} Parastoo Afshar
+            </p>
 
         </div>
 
-    </nav>
-
-</header>
+    </footer>
 
 
-<main id="content">
-    {{ content }}
-</main>
-
-
-<footer class="site-footer">
-
-    <div class="footer-inner">
-
-        <p>
-            © {{ 'now' | date: '%Y' }} Parastoo Afshar
-        </p>
-
-    </div>
-
-</footer>
-
-
-<script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 
 </body>
 </html>
