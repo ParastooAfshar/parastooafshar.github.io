@@ -1608,3 +1608,32 @@ html[dir="rtl"] .note-arrow {
     text-align: right;
     font-family: var(--font-fa);
 }
+/* Final homepage spacing + research cards */
+
+.hero {
+    min-height: auto;
+    padding: 72px 0 64px;
+}
+
+.content-section {
+    padding: 48px 0;
+}
+
+.research-grid {
+    align-items: stretch;
+    gap: 18px;
+}
+
+.research-card {
+    min-height: 0;
+    padding: 24px 26px;
+}
+
+.research-card h3 {
+    margin: 0 0 10px;
+}
+
+.research-card p {
+    margin: 0;
+    line-height: 1.7;
+}
