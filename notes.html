@@ -2,95 +2,89 @@
 layout: default
 title: "یادداشت‌ها"
 permalink: /notes/
-description: "یادداشت‌های پژوهشی، مقاله‌ها و مسیر پایان‌نامه."
+description: "یادداشت‌های پژوهشی و مسیر پایان‌نامه."
 lang: fa
 dir: rtl
 ---
 
-<section class="page-hero notes-hero">
-    <p class="eyebrow">دفتر پژوهش</p>
+<div class="persian-notes-page" lang="fa" dir="rtl">
 
-    <h1>یادداشت‌ها</h1>
+    <section class="page-hero notes-hero">
 
-    <p class="intro">
-        خلاصه مقاله‌ها، یادداشت‌های پایان‌نامه، آزمایش‌ها و چیزهایی
-        که می‌خواهم در مسیر پژوهش نگه دارم.
-    </p>
-</section>
+        <h1>یادداشت‌ها</h1>
+
+        <p class="intro">
+            اینجا یادداشت‌های پژوهشی، مرور مقاله‌ها و مسیر
+            شکل‌گرفتن پایان‌نامه‌ام را ثبت می‌کنم.
+        </p>
+
+    </section>
 
 
-<section class="notes-index">
+    <section class="notes-index">
 
-    {% assign sorted_notes = site.notes
-        | where_exp: "note", "note.published != false"
-        | sort: 'date'
-        | reverse
-    %}
+        {% assign sorted_notes = site.notes
+            | where_exp: "note", "note.published != false"
+            | sort: "date"
+            | reverse
+        %}
 
-    {% if sorted_notes.size > 0 %}
+        {% if sorted_notes.size > 0 %}
 
-        <div class="note-list">
+            <div class="note-list">
 
-            {% for note in sorted_notes %}
+                {% for note in sorted_notes %}
 
-                <article class="note-row">
+                    <article class="note-row">
 
-                    <div>
+                        <div class="note-row-content">
 
-                        <p class="card-meta">
+                            <div class="note-meta">
 
-                            {% if note.jalali_date %}
-                                {{ note.jalali_date }}
-                            {% elsif note.date %}
-                                {{ note.date | date: "%Y-%m-%d" }}
+                                {% if note.jalali_date %}
+                                    <span>{{ note.jalali_date }}</span>
+                                {% endif %}
+
+                                {% if note.tags %}
+                                    {% for tag in note.tags %}
+                                        <span dir="auto">{{ tag }}</span>
+                                    {% endfor %}
+                                {% endif %}
+
+                            </div>
+
+                            <h2>
+                                <a href="{{ note.url | relative_url }}">
+                                    {{ note.title }}
+                                </a>
+                            </h2>
+
+                            {% if note.description %}
+                                <p>{{ note.description }}</p>
                             {% endif %}
 
-                            {% if note.tags %}
-                                · {{ note.tags | join: " · " }}
-                            {% endif %}
+                        </div>
 
-                        </p>
+                    </article>
 
-                        <h2>
-                            <a href="{{ note.url | relative_url }}">
-                                {{ note.title }}
-                            </a>
-                        </h2>
+                {% endfor %}
 
-                        {% if note.description %}
-                            <p>{{ note.description }}</p>
-                        {% endif %}
+            </div>
 
-                    </div>
+        {% else %}
 
-                    <a
-                        class="note-arrow"
-                        href="{{ note.url | relative_url }}"
-                        aria-label="خواندن {{ note.title }}"
-                    >
-                        ←
-                    </a>
+            <div class="empty-state">
 
-                </article>
+                <h2>هنوز یادداشتی منتشر نشده.</h2>
 
-            {% endfor %}
+                <p>
+                    اولین یادداشت پژوهشی اینجا نمایش داده خواهد شد.
+                </p>
 
-        </div>
+            </div>
 
-    {% else %}
+        {% endif %}
 
-        <div class="empty-state">
+    </section>
 
-            <span class="empty-mark">✦</span>
-
-            <h2>هنوز یادداشتی منتشر نشده.</h2>
-
-            <p>
-                اولین یادداشت پژوهشی اینجا نمایش داده خواهد شد.
-            </p>
-
-        </div>
-
-    {% endif %}
-
-</section>
+</div>
