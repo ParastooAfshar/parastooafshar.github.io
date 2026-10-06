@@ -1,7 +1,7 @@
----
-title: "پروژه‌ی درس داده‌کاوی پیشرفته "
-description: ""
+title: "پروژه‌ی درس داده‌کاوی پیشرفته"
+date: 2026-08-10
 jalali_date: "۱۹ مرداد ۱۴۰۵"
+description: "DETACH-ROCKET روی دیتاست FordB"
 github: "https://github.com/ParastooAfshar/detach-rocket-fordb"
 paper: "https://doi.org/10.1007/s10618-024-01062-7"
 order: 1

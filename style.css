@@ -1240,3 +1240,16 @@ main,
     font-size: 13px;
     font-weight: 700;
 }
+
+.home-note-list,
+.home-project-list {
+    width: 100%;
+}
+
+.home-note-list .home-note,
+.home-project-list .home-note {
+    width: 100%;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: 0;
+}

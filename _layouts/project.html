@@ -1,63 +1,79 @@
 ---
 layout: default
-title: "پروژه‌ها"
-permalink: /projects/
-description: "پروژه‌ها و تمرین‌هایی که در طول مسیر انجام می‌دهم."
-lang: fa
-dir: rtl
 ---
 
-<div class="persian-notes-page" lang="fa" dir="rtl">
+{% assign words = content | strip_html | number_of_words %}
+{% assign reading_time = words | plus: 199 | divided_by: 200 %}
 
-    <section class="page-hero">
-        <h1>پروژه‌ها</h1>
+{% assign reading_time_fa = reading_time
+    | append: ""
+    | replace: "0", "۰"
+    | replace: "1", "۱"
+    | replace: "2", "۲"
+    | replace: "3", "۳"
+    | replace: "4", "۴"
+    | replace: "5", "۵"
+    | replace: "6", "۶"
+    | replace: "7", "۷"
+    | replace: "8", "۸"
+    | replace: "9", "۹"
+%}
 
-        <p class="intro">
-            اینجا پروژه‌ها و تمرین‌هایی که توی دانشگاه انجام می‌دم رو نگه می‌دارم.
-        </p>
-    </section>
+<article class="note-page persian-note project-page" lang="fa" dir="rtl">
 
-    <section class="notes-index">
+    <a
+        class="back-link persian-back-link"
+        href="{{ '/projects/' | relative_url }}"
+    >
+        بازگشت به پروژه‌ها
+    </a>
 
-        {% assign projects = site.projects
-            | sort: "date"
-            | reverse
-        %}
+    <header class="note-header">
 
-        <div class="note-list">
+        <div class="note-meta">
+            {% if page.jalali_date %}
+                <span>{{ page.jalali_date }}</span>
+            {% endif %}
 
-            {% for project in projects %}
-
-                <article class="note-row">
-
-                    <div class="note-row-content">
-
-                        <div class="note-meta">
-                            {% if project.jalali_date %}
-                                <span>{{ project.jalali_date }}</span>
-                            {% endif %}
-                        </div>
-
-                        <h2>
-                            <a href="{{ project.url | relative_url }}">
-                                {{ project.title }}
-                            </a>
-                        </h2>
-
-                        {% if project.description %}
-                            <p>
-                                {{ project.description }}
-                            </p>
-                        {% endif %}
-
-                    </div>
-
-                </article>
-
-            {% endfor %}
-
+            <span>
+                حدود {{ reading_time_fa }} دقیقه مطالعه
+            </span>
         </div>
 
-    </section>
+        <h1>{{ page.title }}</h1>
 
-</div>
+        {% if page.description %}
+            <p class="intro">
+                {{ page.description }}
+            </p>
+        {% endif %}
+
+    </header>
+
+    <div class="prose" lang="fa" dir="rtl">
+        {{ content }}
+    </div>
+
+    <div class="project-links">
+        {% if page.github %}
+            <a
+                href="{{ page.github }}"
+                target="_blank"
+                rel="noopener"
+            >
+                GitHub ↗
+            </a>
+        {% endif %}
+
+        {% if page.paper %}
+            <a
+                href="{{ page.paper }}"
+                target="_blank"
+                rel="noopener"
+            >
+                مقاله‌ی اصلی ↗
+            </a>
+        {% endif %}
+    </div>
+
+</article>
