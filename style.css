@@ -1597,3 +1597,33 @@ html[dir="rtl"] .note-arrow {
         line-height: 2.05;
     }
 }
+
+.home-note-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+
+    direction: rtl;
+    justify-content: flex-start;
+
+    font-family: var(--font-fa);
+    color: var(--subtle);
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.home-note-meta span {
+    unicode-bidi: isolate;
+}
+
+.meta-separator {
+    opacity: 0.55;
+}
+
+.persian-home-note {
+    direction: rtl;
+    text-align: right;
+    font-family: var(--font-fa);
+}
