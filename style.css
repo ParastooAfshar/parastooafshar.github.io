@@ -396,42 +396,26 @@ main,
 ------------------------------------------------- */
 
 .focus-card {
-    position: relative;
-    overflow: hidden;
-
-    padding: 28px;
-
-    border: 1px solid var(--border);
-    border-radius: 22px;
-
-    background:
-        color-mix(
-            in srgb,
-            var(--surface) 92%,
-            transparent
-        );
-
-    box-shadow: var(--shadow);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .focus-card h2 {
-    margin: 11px 0 12px;
-
-    font-family: var(--font-sans);
-
+    margin: 10px 0 12px;
     font-size: 28px;
-    font-weight: 740;
-
-    line-height: 1.15;
-    letter-spacing: -0.035em;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .focus-card p:not(.focus-label) {
+    max-width: 340px;
     margin: 0;
-
     color: var(--muted);
-
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.7;
 }
 
 .focus-tags {
@@ -442,19 +426,6 @@ main,
 
     margin-top: 22px;
 }
-
-.focus-tags span {
-    padding: 6px 9px;
-
-    border-radius: 999px;
-
-    background: var(--accent-soft);
-    color: var(--accent-text);
-
-    font-size: 11px;
-    font-weight: 700;
-}
-
 
 /* -------------------------------------------------
    Content sections
