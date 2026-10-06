@@ -1588,7 +1588,86 @@ html[dir="rtl"] .note-arrow {
     font-size: 22px;
     line-height: 1.6;
 }
+/* Center Persian note content */
 
+.persian-note {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+.persian-note .note-header,
+.persian-note .prose {
+    width: 100%;
+    max-width: 760px;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.persian-note .persian-back-link {
+    width: 100%;
+    max-width: 760px;
+
+    display: flex;
+
+    margin: 0 auto 48px;
+}
+/* Final Research layout */
+
+.research-section {
+    padding: 48px 0 56px;
+    border-top: 1px solid var(--border);
+}
+
+.research-section .research-grid {
+    width: 100%;
+    max-width: 980px;
+
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+    align-items: stretch;
+}
+
+.research-section .research-card {
+    min-height: 0;
+
+    display: block;
+
+    padding: 26px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background: var(--surface);
+}
+
+.research-section .research-card h3 {
+    margin: 0 0 12px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+.research-section .research-card p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+@media (max-width: 860px) {
+    .research-section .research-grid {
+        grid-template-columns: 1fr;
+    }
+}
 .persian-home-note p {
     font-family: var(--font-fa);
     line-height: 1.9;
