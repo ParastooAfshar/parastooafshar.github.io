@@ -4,7 +4,6 @@ title: "چند خط از مسیر"
 date: 2026-10-06
 jalali_date: "۱۴ مهر ۱۴۰۵"
 description: "راهی که کم‌کم پیدا می‌شود"
-tags: [پایان‌نامه, LLM, مهندسی نرم‌افزار]
 lang: fa
 dir: rtl
 ---
