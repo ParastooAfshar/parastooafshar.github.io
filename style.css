@@ -1660,13 +1660,13 @@ html[dir="rtl"] .note-arrow {
     line-height: 1.9;
 }
 .hero h1 {
-    font-size: clamp(40px, 5vw, 56px);
+    font-size: clamp(38px, 4.6vw, 52px);
 }
 
 .hero .intro {
-    font-size: clamp(17px, 1.8vw, 19px);
-    line-height: 1.65;
-    max-width: 620px;
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.7;
 }
 
 .hero .eyebrow {
