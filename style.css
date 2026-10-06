@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap");
+
+
 :root {
     color-scheme: light;
 
@@ -28,6 +31,13 @@
         "Segoe UI",
         Roboto,
         Helvetica,
+        Arial,
+        sans-serif;
+
+    --font-fa:
+        "Vazirmatn",
+        Tahoma,
+        "Segoe UI",
         Arial,
         sans-serif;
 }
@@ -511,7 +521,7 @@ main,
     font-family: var(--font-sans);
 
     font-size: 19px;
-    font-weight: 450;
+    font-weight: 400;
 
     line-height: 1.7;
     letter-spacing: -0.012em;
@@ -877,31 +887,216 @@ main,
 
 
 /* -------------------------------------------------
-   Persian / RTL notes
+   Persian / RTL
 ------------------------------------------------- */
 
-html[dir="rtl"] body {
-    font-family:
-        Tahoma,
-        "Segoe UI",
-        Arial,
-        sans-serif;
+html[lang="fa"] main {
+    font-family: var(--font-fa);
 }
 
-.prose[dir="rtl"] {
+html[dir="rtl"] .site-header,
+html[dir="rtl"] .site-footer {
+    direction: ltr;
+}
+
+
+/* Persian Notes page */
+
+html[dir="rtl"] main {
+    direction: rtl;
+}
+
+html[dir="rtl"] .page-hero {
+    margin-left: auto;
+    margin-right: 0;
+
     text-align: right;
 
-    font-family:
-        Tahoma,
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    font-family: var(--font-fa);
+}
+
+html[dir="rtl"] .page-hero .eyebrow,
+html[dir="rtl"] .page-hero h1,
+html[dir="rtl"] .page-hero .intro {
+    font-family: var(--font-fa);
+}
+
+html[dir="rtl"] .page-hero .eyebrow {
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .page-hero h1 {
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+html[dir="rtl"] .page-hero .intro {
+    line-height: 2;
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .notes-index {
+    direction: rtl;
+
+    font-family: var(--font-fa);
+}
+
+html[dir="rtl"] .note-row {
+    direction: rtl;
+    text-align: right;
+
+    font-family: var(--font-fa);
+}
+
+html[dir="rtl"] .note-row h2 {
+    font-family: var(--font-fa);
+
+    line-height: 1.7;
+    letter-spacing: -0.015em;
+}
+
+html[dir="rtl"] .note-row p {
+    font-family: var(--font-fa);
+
+    line-height: 1.9;
+}
+
+html[dir="rtl"] .note-row .card-meta {
+    font-family: var(--font-fa);
+
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .note-arrow {
+    font-family: var(--font-fa);
+}
+
+
+/* -------------------------------------------------
+   Individual Persian note
+------------------------------------------------- */
+
+.persian-note {
+    max-width: 780px;
+
+    margin-inline: auto;
+
+    direction: rtl;
+    text-align: right;
+
+    font-family: var(--font-fa);
+}
+
+.persian-note .back-link {
+    font-family: var(--font-fa);
+}
+
+.persian-note .card-meta {
+    font-family: var(--font-fa);
+
+    text-transform: none;
+    letter-spacing: 0;
+
+    font-size: 12px;
+}
+
+.persian-note .note-header h1 {
+    font-family: var(--font-fa);
+
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+}
+
+.persian-note .intro {
+    max-width: 680px;
+
+    font-family: var(--font-fa);
+
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 0;
+}
+
+
+/* -------------------------------------------------
+   Persian article body
+------------------------------------------------- */
+
+.prose[dir="rtl"] {
+    direction: rtl;
+
+    text-align: right;
+
+    font-family: var(--font-fa);
+
+    font-size: 18px;
+    line-height: 2.1;
+}
+
+.prose[dir="rtl"] p,
+.prose[dir="rtl"] li {
+    color: var(--text);
+
+    font-family: var(--font-fa);
+}
+
+.prose[dir="rtl"] p {
+    margin: 0 0 1.4em;
+}
+
+.prose[dir="rtl"] h2 {
+    margin-top: 2.6em;
+    margin-bottom: 0.9em;
+
+    padding-right: 12px;
+
+    border-right: 3px solid var(--accent);
+
+    font-family: var(--font-fa);
+
+    font-size: 24px;
+    font-weight: 700;
+
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+}
+
+.prose[dir="rtl"] h3 {
+    margin-top: 2.2em;
+    margin-bottom: 0.8em;
+
+    font-family: var(--font-fa);
+
+    font-size: 20px;
+    font-weight: 600;
+
+    line-height: 1.7;
+    letter-spacing: -0.01em;
 }
 
 .prose[dir="rtl"] ul,
 .prose[dir="rtl"] ol {
-    padding-inline-start: 0;
-    padding-inline-end: 1.5em;
+    padding-right: 1.5rem;
+    padding-left: 0;
+}
+
+.prose[dir="rtl"] li {
+    margin: 0.45em 0;
+}
+
+.prose[dir="rtl"] strong {
+    font-weight: 700;
+}
+
+.prose[dir="rtl"] code,
+.prose[dir="rtl"] pre {
+    direction: ltr;
+    text-align: left;
 }
 
 
@@ -1021,10 +1216,6 @@ html[dir="rtl"] body {
         line-height: 1.65;
     }
 
-    /*
-       On narrow screens, allowing the phrase to wrap
-       prevents horizontal overflow.
-    */
     .nowrap {
         white-space: normal;
     }
@@ -1044,6 +1235,37 @@ html[dir="rtl"] body {
 
         align-items: flex-start;
         justify-content: center;
+    }
+
+
+    /* Persian mobile */
+
+    html[dir="rtl"] .page-hero h1 {
+        font-size: 40px;
+        line-height: 1.5;
+    }
+
+    html[dir="rtl"] .page-hero .intro {
+        font-size: 16px;
+        line-height: 2;
+    }
+
+    .persian-note .note-header h1 {
+        font-size: 32px;
+        line-height: 1.55;
+    }
+
+    .prose[dir="rtl"] {
+        font-size: 17px;
+        line-height: 2;
+    }
+
+    .prose[dir="rtl"] h2 {
+        font-size: 22px;
+    }
+
+    .prose[dir="rtl"] h3 {
+        font-size: 19px;
     }
 }
 
