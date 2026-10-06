@@ -11,16 +11,16 @@ layout: default
 
 
     <header class="note-header">
+        
+<div class="note-meta">
 
-        <div class="note-meta">
+    {% if page.jalali_date %}
+        <span>{{ page.jalali_date }}</span>
+    {% elsif page.date %}
+        <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+    {% endif %}
 
-            {% if page.jalali_date %}
-                <span>{{ page.jalali_date }}</span>
-                {% elsif page.date %}
-                <span>{{ page.date | date: "%Y-%m-%d" }}</span>
-                {% endif %}
-
-        </div>
+</div>
 
 
         <h1>{{ page.title }}</h1>
