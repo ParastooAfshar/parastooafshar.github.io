@@ -22,8 +22,8 @@ defaults:
       type: notes
     values:
       layout: note
-      lang: en
-      dir: ltr
+      lang: fa
+      dir: rtl
 
 exclude:
   - README.md
