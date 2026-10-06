@@ -142,19 +142,26 @@ title: Home
 
                     <article class="home-note">
 
-                        <p class="card-meta">
+                   <div class="note-meta home-note-meta">
 
-                            {% if note.jalali_date %}
-                                {{ note.jalali_date }}
-                            {% else %}
-                                {{ note.date | date: "%b %d, %Y" }}
-                            {% endif %}
+    {% if note.jalali_date %}
+        <span class="meta-date" dir="rtl">
+            {{ note.jalali_date }}
+        </span>
+    {% else %}
+        <span class="meta-date" dir="ltr">
+            {{ note.date | date: "%b %d, %Y" }}
+        </span>
+    {% endif %}
 
-                            {% if note.tags %}
-                                · {{ note.tags | join: " · " }}
-                            {% endif %}
+    {% if note.tags %}
+        {% for tag in note.tags %}
+            <span class="meta-separator">·</span>
+            <span class="meta-tag" dir="auto">{{ tag }}</span>
+        {% endfor %}
+    {% endif %}
 
-                        </p>
+</div>
 
                         <h3>
                             <a href="{{ note.url | relative_url }}">
