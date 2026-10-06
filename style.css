@@ -1462,6 +1462,10 @@ html[dir="rtl"] .note-arrow {
 
 @media (max-width: 700px) {
 
+    .hero .intro {
+    white-space: normal;
+    }
+
     .persian-notes-page .page-hero {
         padding-top: 64px;
         padding-bottom: 48px;
@@ -1664,9 +1668,9 @@ html[dir="rtl"] .note-arrow {
 }
 
 .hero .intro {
-    max-width: 560px;
-    font-size: 15px;
-    line-height: 1.7;
+    max-width: none;
+    white-space: nowrap;
+    font-size: 16px;
 }
 
 .hero .eyebrow {
