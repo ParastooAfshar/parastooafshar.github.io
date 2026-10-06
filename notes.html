@@ -1,42 +1,96 @@
 ---
 layout: default
-title: Notes
+title: "یادداشت‌ها"
 permalink: /notes/
-description: "Research notes, paper summaries, thesis logs, and technical observations."
+description: "یادداشت‌های پژوهشی، مقاله‌ها و مسیر پایان‌نامه."
+lang: fa
+dir: rtl
 ---
 
 <section class="page-hero notes-hero">
-    <p class="eyebrow">Research log</p>
-    <h1>Notes</h1>
+    <p class="eyebrow">دفتر پژوهش</p>
+
+    <h1>یادداشت‌ها</h1>
+
     <p class="intro">
-        Research notes, paper summaries, thesis work, and technical ideas.
+        خلاصه مقاله‌ها، یادداشت‌های پایان‌نامه، آزمایش‌ها و چیزهایی
+        که می‌خواهم در مسیر پژوهش نگه دارم.
     </p>
 </section>
 
+
 <section class="notes-index">
-    {% assign sorted_notes = site.notes | where_exp: "note", "note.published != false" | sort: 'date' | reverse %}
+
+    {% assign sorted_notes = site.notes
+        | where_exp: "note", "note.published != false"
+        | sort: 'date'
+        | reverse
+    %}
 
     {% if sorted_notes.size > 0 %}
+
         <div class="note-list">
+
             {% for note in sorted_notes %}
+
                 <article class="note-row">
+
                     <div>
+
                         <p class="card-meta">
-                            {% if note.date %}{{ note.date | date: "%b %d, %Y" }}{% endif %}
-                            {% if note.tags %} · {{ note.tags | join: " · " }}{% endif %}
+
+                            {% if note.jalali_date %}
+                                {{ note.jalali_date }}
+                            {% elsif note.date %}
+                                {{ note.date | date: "%Y-%m-%d" }}
+                            {% endif %}
+
+                            {% if note.tags %}
+                                · {{ note.tags | join: " · " }}
+                            {% endif %}
+
                         </p>
-                        <h2><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h2>
-                        {% if note.description %}<p>{{ note.description }}</p>{% endif %}
+
+                        <h2>
+                            <a href="{{ note.url | relative_url }}">
+                                {{ note.title }}
+                            </a>
+                        </h2>
+
+                        {% if note.description %}
+                            <p>{{ note.description }}</p>
+                        {% endif %}
+
                     </div>
-                    <a class="note-arrow" href="{{ note.url | relative_url }}" aria-label="Read {{ note.title }}">→</a>
+
+                    <a
+                        class="note-arrow"
+                        href="{{ note.url | relative_url }}"
+                        aria-label="خواندن {{ note.title }}"
+                    >
+                        ←
+                    </a>
+
                 </article>
+
             {% endfor %}
+
         </div>
+
     {% else %}
+
         <div class="empty-state">
+
             <span class="empty-mark">✦</span>
-            <h2>No notes published yet.</h2>
-            <p>The first paper summary or thesis update will appear here.</p>
+
+            <h2>هنوز یادداشتی منتشر نشده.</h2>
+
+            <p>
+                اولین یادداشت پژوهشی اینجا نمایش داده خواهد شد.
+            </p>
+
         </div>
+
     {% endif %}
+
 </section>
