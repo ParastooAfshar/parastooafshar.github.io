@@ -780,28 +780,16 @@ main,
 }
 
 .footer-inner {
-    min-height: 118px;
+    min-height: 100px;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-    gap: 24px;
+    justify-content: center;
 
     color: var(--subtle);
 
     font-size: 12px;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 18px;
-}
-
-.footer-links a {
-    color: var(--muted);
+    text-align: center;
 }
 
 
