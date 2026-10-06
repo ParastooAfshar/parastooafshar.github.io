@@ -4,25 +4,31 @@ layout: default
 
 <article class="note-page persian-note" lang="fa" dir="rtl">
 
-    <a class="back-link" href="{{ '/notes/' | relative_url }}">
-        → همه یادداشت‌ها
+    <a class="back-link persian-back-link"
+       href="{{ '/notes/' | relative_url }}">
+        بازگشت به یادداشت‌ها
     </a>
+
 
     <header class="note-header">
 
-        <p class="card-meta">
+        <div class="note-meta">
+
             {% if page.jalali_date %}
-                {{ page.jalali_date }}
-            {% elsif page.date %}
-                {{ page.date | date: "%Y-%m-%d" }}
+                <span>{{ page.jalali_date }}</span>
             {% endif %}
 
             {% if page.tags %}
-                · {{ page.tags | join: " · " }}
+                {% for tag in page.tags %}
+                    <span dir="auto">{{ tag }}</span>
+                {% endfor %}
             {% endif %}
-        </p>
+
+        </div>
+
 
         <h1>{{ page.title }}</h1>
+
 
         {% if page.description %}
             <p class="intro">
@@ -31,6 +37,7 @@ layout: default
         {% endif %}
 
     </header>
+
 
     <div class="prose" lang="fa" dir="rtl">
         {{ content }}
