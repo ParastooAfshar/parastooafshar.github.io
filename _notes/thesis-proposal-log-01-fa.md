@@ -2,7 +2,7 @@
 layout: note
 title: "چند خط از مسیر"
 date: 2026-10-06
-jalali_date: "۱۴ مهر ۱۴۰۵"
+jalali_date: "۲۷ شهریور ۱۴۰۵"
 description: "راهی که کم‌کم پیدا می‌شود"
 lang: fa
 dir: rtl

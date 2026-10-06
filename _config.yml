@@ -16,12 +16,24 @@ collections:
     output: true
     permalink: /notes/:name/
 
+  projects:
+    output: true
+    permalink: /projects/:name/
+
 defaults:
   - scope:
       path: ""
       type: notes
     values:
       layout: note
+      lang: fa
+      dir: rtl
+      
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
       lang: fa
       dir: rtl
 
