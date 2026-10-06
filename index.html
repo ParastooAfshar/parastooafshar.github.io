@@ -17,19 +17,58 @@ title: Home
             I’m exploring the space between LLMs, software engineering, and real developer workflows.
         </p>
 
-        <div class="hero-actions">
+<div class="hero-actions">
 
-            <a class="primary-link" href="{{ '/notes/' | relative_url }}">
-                Explore notes <span>→</span>
-            </a>
+    <a
+        class="primary-link"
+        href="{{ '/notes/' | relative_url }}"
+    >
+        Explore notes <span>→</span>
+    </a>
 
-            {% if site.github_url and site.github_url != '' %}
-                <a class="secondary-link" href="{{ site.github_url }}">
-                    GitHub ↗
-                </a>
-            {% endif %}
+    {% if site.github_url and site.github_url != '' %}
+        <a
+            class="secondary-link"
+            href="{{ site.github_url }}"
+            target="_blank"
+            rel="noopener"
+        >
+            GitHub ↗
+        </a>
+    {% endif %}
 
-        </div>
+    {% if site.linkedin_url and site.linkedin_url != '' %}
+        <a
+            class="secondary-link"
+            href="{{ site.linkedin_url }}"
+            target="_blank"
+            rel="noopener"
+        >
+            LinkedIn ↗
+        </a>
+    {% endif %}
+
+    {% if site.email and site.email != '' %}
+        <a
+            class="secondary-link"
+            href="mailto:{{ site.email }}"
+        >
+            Email ↗
+        </a>
+    {% endif %}
+
+    {% if site.cv_url and site.cv_url != '' %}
+        <a
+            class="secondary-link"
+            href="{{ site.cv_url }}"
+            target="_blank"
+            rel="noopener"
+        >
+            CV ↗
+        </a>
+    {% endif %}
+
+</div>
 
     </div>
 
