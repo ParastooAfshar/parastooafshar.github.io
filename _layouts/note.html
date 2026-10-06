@@ -2,25 +2,50 @@
 layout: default
 ---
 
+{% assign words = content | strip_html | number_of_words %}
+{% assign reading_time = words | plus: 199 | divided_by: 200 %}
+
+{% assign reading_time_fa = reading_time
+    | append: ""
+    | replace: "0", "۰"
+    | replace: "1", "۱"
+    | replace: "2", "۲"
+    | replace: "3", "۳"
+    | replace: "4", "۴"
+    | replace: "5", "۵"
+    | replace: "6", "۶"
+    | replace: "7", "۷"
+    | replace: "8", "۸"
+    | replace: "9", "۹"
+%}
+
 <article class="note-page persian-note" lang="fa" dir="rtl">
 
-    <a class="back-link persian-back-link"
-       href="{{ '/notes/' | relative_url }}">
+    <a
+        class="back-link persian-back-link"
+        href="{{ '/notes/' | relative_url }}"
+    >
         بازگشت به یادداشت‌ها
     </a>
 
 
     <header class="note-header">
-        
-<div class="note-meta">
 
-    {% if page.jalali_date %}
-        <span>{{ page.jalali_date }}</span>
-    {% elsif page.date %}
-        <span>{{ page.date | date: "%Y-%m-%d" }}</span>
-    {% endif %}
+        <div class="note-meta">
 
-</div>
+            {% if page.jalali_date %}
+                <span>{{ page.jalali_date }}</span>
+            {% elsif page.date %}
+                <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+            {% endif %}
+
+            <span>·</span>
+
+            <span>
+                حدود {{ reading_time_fa }} دقیقه مطالعه
+            </span>
+
+        </div>
 
 
         <h1>{{ page.title }}</h1>
