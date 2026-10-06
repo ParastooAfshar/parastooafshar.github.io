@@ -16,13 +16,9 @@ layout: default
 
             {% if page.jalali_date %}
                 <span>{{ page.jalali_date }}</span>
-            {% endif %}
-
-            {% if page.tags %}
-                {% for tag in page.tags %}
-                    <span dir="auto">{{ tag }}</span>
-                {% endfor %}
-            {% endif %}
+                {% elsif page.date %}
+                <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+                {% endif %}
 
         </div>
 
