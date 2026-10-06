@@ -480,7 +480,7 @@ main,
 
 .research-card {
     min-height: 0;
-    padding: 24px;
+    padding: 20px 24px;
 
     display: flex;
     flex-direction: column;
@@ -1570,4 +1570,26 @@ html[dir="rtl"] .note-arrow {
 .research-card p {
     margin: 0;
     line-height: 1.7;
+}
+.home-note {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 24px 0;
+}
+
+.persian-home-note {
+    max-width: 720px;
+}
+
+.persian-home-note h3 {
+    margin: 8px 0 6px;
+    font-family: var(--font-fa);
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.persian-home-note p {
+    font-family: var(--font-fa);
+    line-height: 1.9;
 }
