@@ -63,10 +63,6 @@ a:focus-visible, button:focus-visible {
     outline-offset: 4px;
 }
 
-.nowrap {
-    white-space: nowrap;
-}
-
 .skip-link {
     position: fixed;
     top: -120px;
@@ -271,6 +267,10 @@ a:focus-visible, button:focus-visible {
     letter-spacing: -0.015em;
     font-weight: 400;
     max-width: 920px;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 .about-grid {
     display: block;
