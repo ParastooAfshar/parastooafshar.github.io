@@ -113,61 +113,6 @@ title: Home
 
 </section>
 
-<section id="projects" class="content-section">
-
-    <div class="section-label">
-        <h2>Projects</h2>
-    </div>
-
-    <div class="section-body">
-
-        {% assign recent_projects = site.projects
-            | sort: "date"
-            | reverse
-        %}
-
-        <div class="home-project-list">
-
-            {% for project in recent_projects limit:3 %}
-
-                <article
-                    class="home-note persian-home-note"
-                    lang="fa"
-                    dir="rtl"
-                >
-
-                    <div class="note-meta home-note-meta">
-                        {% if project.jalali_date %}
-                            <span>{{ project.jalali_date }}</span>
-                        {% endif %}
-                    </div>
-
-                    <h3>
-                        <a href="{{ project.url | relative_url }}">
-                            {{ project.title }}
-                        </a>
-                    </h3>
-
-                    {% if project.description %}
-                        <p>
-                            {{ project.description }}
-                        </p>
-                    {% endif %}
-
-                </article>
-
-            {% endfor %}
-
-        </div>
-
-        <a class="text-link" href="{{ '/projects/' | relative_url }}">
-            همه‌ی پروژه‌ها ←
-        </a>
-
-    </div>
-
-</section>
-
 <section id="notes" class="content-section">
 
     <div class="section-label">
@@ -234,6 +179,60 @@ title: Home
         <a class="text-link" href="{{ '/notes/' | relative_url }}">
             Browse all notes <span>→</span>
         </a>
+
+    </div>
+
+</section>
+
+<section id="projects" class="content-section">
+
+    <div class="section-label">
+        <h2>Projects</h2>
+    </div>
+
+    <div class="section-body">
+
+        {% assign recent_projects = site.projects
+            | sort: "date"
+            | reverse
+        %}
+
+        <div class="home-project-list">
+
+            {% for project in recent_projects limit:3 %}
+
+                <article
+                    class="home-note persian-home-note"
+                    lang="fa"
+                    dir="rtl"
+                >
+
+                    <div class="note-meta home-note-meta">
+                        {% if project.jalali_date %}
+                            <span>{{ project.jalali_date }}</span>
+                        {% endif %}
+                    </div>
+
+                    <h3>
+                        <a href="{{ project.url | relative_url }}">
+                            {{ project.title }}
+                        </a>
+                    </h3>
+
+                    {% if project.description %}
+                        <p>
+                            {{ project.description }}
+                        </p>
+                    {% endif %}
+
+                </article>
+
+            {% endfor %}
+
+        </div>
+
+        <a class="text-link" href="{{ '/projects/' | relative_url }}">
+        Browse all projects →        </a>
 
     </div>
 
