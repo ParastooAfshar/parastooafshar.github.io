@@ -261,10 +261,10 @@ a:focus-visible, button:focus-visible {
 .section-body p { color: var(--muted); }
 .lead-copy {
     color: var(--text) !important;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 20px;
-    line-height: 1.55;
-    letter-spacing: -0.015em;
+    font-family: inherit;
+    font-size: 19px;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
     font-weight: 400;
     max-width: 920px;
 }
