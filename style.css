@@ -1295,7 +1295,7 @@ main,
 .hero-line {
     position: absolute;
 
-    width: 1px;
+    width: 1.5px;
     height: 150%;
 
     top: -25%;
@@ -1303,11 +1303,13 @@ main,
     background: linear-gradient(
         to bottom,
         transparent,
-        rgba(96, 165, 250, 0.05),
-        rgba(96, 165, 250, 0.32),
-        rgba(96, 165, 250, 0.05),
+        rgba(96, 165, 250, 0.10),
+        rgba(96, 165, 250, 0.55),
+        rgba(96, 165, 250, 0.10),
         transparent
     );
+
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.12);
 
     opacity: 0;
 
@@ -1336,16 +1338,16 @@ main,
     }
 
     20% {
-        opacity: 0.15;
+        opacity: 0.3;
     }
 
     45% {
         transform: translateY(2%) rotate(10deg);
-        opacity: 0.65;
+        opacity: 0.9;
     }
 
-    70% {
-        opacity: 0.18;
+    75% {
+        opacity: 0.35;
     }
 
     100% {
