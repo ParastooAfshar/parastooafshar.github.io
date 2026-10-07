@@ -1273,39 +1273,141 @@ main,
     font-weight: 700;
 }
 
-/* Minimal fading moving lines */
+/* =================================================
+   Centered Hero
+================================================= */
 
-.hero {
+.hero-centered {
     position: relative;
     overflow: hidden;
+
+    min-height: 68vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 92px 0 88px;
+
+    text-align: center;
+
+    border-bottom: 1px solid var(--border);
 }
 
-.hero-copy {
+.hero-centered .hero-copy {
     position: relative;
     z-index: 2;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin-inline: auto;
 }
 
-.hero-lines {
+.hero-centered .eyebrow {
+    margin: 0 0 18px;
+
+    color: var(--subtle);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.hero-centered h1 {
+    margin: 0;
+
+    font-size: clamp(48px, 7vw, 78px);
+    font-weight: 760;
+
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+.hero-centered .intro {
+    max-width: 760px;
+
+    margin: 28px auto 0;
+
+    color: var(--muted);
+
+    font-size: 17px;
+    line-height: 1.75;
+
+    white-space: normal;
+}
+
+.hero-centered .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 34px;
+}
+
+.hero-centered .secondary-link,
+.hero-centered .primary-link {
+    min-width: 118px;
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background-color 160ms ease;
+}
+
+.hero-centered .secondary-link:hover,
+.hero-centered .primary-link:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--accent);
+    background: var(--surface-soft);
+
+    color: var(--text);
+}
+
+
+/* =================================================
+   Animated blue lines
+================================================= */
+
+.hero-centered .hero-lines {
     position: absolute;
     inset: 0;
+
     overflow: hidden;
+
     pointer-events: none;
 }
 
-.hero-line {
+.hero-centered .hero-line {
     position: absolute;
 
     width: 1.5px;
-    height: 150%;
-
-    top: -25%;
 
     background: linear-gradient(
         to bottom,
         transparent,
-        rgba(96, 165, 250, 0.10),
+        rgba(96, 165, 250, 0.08),
         rgba(96, 165, 250, 0.55),
-        rgba(96, 165, 250, 0.10),
+        rgba(96, 165, 250, 0.08),
         transparent
     );
 
@@ -1313,66 +1415,128 @@ main,
 
     opacity: 0;
 
-    animation: heroLineFade 14s ease-in-out infinite;
+    transform-origin: center;
+
+    animation: centeredHeroLine 15s ease-in-out infinite;
 }
 
-.line-one {
-    left: 68%;
-    animation-delay: 0s;
+.hero-centered .line-one {
+    left: 14%;
+    top: -20%;
+    height: 135%;
+
+    animation-delay: -2s;
 }
 
-.line-two {
-    left: 79%;
+.hero-centered .line-two {
+    left: 36%;
+    top: 18%;
+    height: 105%;
+
+    animation-delay: -8s;
+}
+
+.hero-centered .line-three {
+    left: 69%;
+    top: -12%;
+    height: 140%;
+
     animation-delay: -5s;
 }
 
-.line-three {
-    left: 89%;
-    animation-delay: -9s;
+.hero-centered .line-four {
+    left: 88%;
+    top: 32%;
+    height: 86%;
+
+    animation-delay: -11s;
 }
 
-@keyframes heroLineFade {
+@keyframes centeredHeroLine {
     0% {
-        transform: translateY(-5%) rotate(10deg);
+        transform: translateY(-7%) rotate(10deg);
         opacity: 0;
     }
 
     20% {
-        opacity: 0.3;
+        opacity: 0.2;
     }
 
     45% {
-        transform: translateY(2%) rotate(10deg);
-        opacity: 0.9;
+        transform: translateY(2%) rotate(9deg);
+        opacity: 0.7;
     }
 
-    75% {
-        opacity: 0.35;
+    72% {
+        opacity: 0.25;
     }
 
     100% {
-        transform: translateY(6%) rotate(10deg);
+        transform: translateY(8%) rotate(11deg);
         opacity: 0;
     }
 }
 
+
+/* =================================================
+   Centered Hero — Mobile
+================================================= */
+
 @media (max-width: 700px) {
-    .line-one {
+
+    .hero-centered {
+        min-height: 62vh;
+
+        padding: 72px 0 64px;
+    }
+
+    .hero-centered .eyebrow {
+        font-size: 10px;
+    }
+
+    .hero-centered h1 {
+        font-size: clamp(42px, 14vw, 58px);
+    }
+
+    .hero-centered .intro {
+        max-width: 92%;
+
+        margin-top: 22px;
+
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .hero-centered .hero-actions {
+        margin-top: 28px;
+    }
+
+    .hero-centered .secondary-link,
+    .hero-centered .primary-link {
+        min-width: 104px;
+    }
+
+    .hero-centered .line-one {
+        left: 5%;
+    }
+
+    .hero-centered .line-two {
+        left: 34%;
+    }
+
+    .hero-centered .line-three {
         left: 72%;
     }
 
-    .line-two {
-        left: 86%;
-    }
-
-    .line-three {
-        display: none;
+    .hero-centered .line-four {
+        left: 94%;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-line {
+    .hero-centered .hero-line {
         animation: none;
-        opacity: 0.18;
+        opacity: 0.15;
     }
 }
+

@@ -3,18 +3,19 @@ layout: default
 title: Home
 ---
 
-<section class="hero">
+<section class="hero hero-centered">
 
     <div class="hero-lines" aria-hidden="true">
         <span class="hero-line line-one"></span>
         <span class="hero-line line-two"></span>
         <span class="hero-line line-three"></span>
+        <span class="hero-line line-four"></span>
     </div>
 
     <div class="hero-copy">
 
         <p class="eyebrow">
-            M.Sc. Student · K. N. Toosi University of Technology
+            M.Sc. Student · Software Engineering
         </p>
 
         <h1>Parastoo Afshar</h1>
@@ -23,62 +24,50 @@ title: Home
             I’m studying Software Engineering and spending time on the ideas and questions I find interesting.
         </p>
 
-<div class="hero-actions">
+        <div class="hero-actions">
 
-    <a
-        class="secondary-link"
-        href="{{ '/notes/' | relative_url }}"
-    >
-        Notes <span>↗</span>
-    </a>
+            <a class="secondary-link" href="{{ '/notes/' | relative_url }}">
+                Notes ↗
+            </a>
 
-        <a class="secondary-link" href="{{ '/projects/' | relative_url }}">
-        Projects <span>↗</span>
-    </a>
+            <a class="secondary-link" href="{{ '/projects/' | relative_url }}">
+                Projects ↗
+            </a>
 
-    {% if site.github_url and site.github_url != '' %}
-        <a
-            class="secondary-link"
-            href="{{ site.github_url }}"
-            target="_blank"
-            rel="noopener"
-        >
-            GitHub ↗
-        </a>
-    {% endif %}
+            {% if site.github_url and site.github_url != '' %}
+                <a
+                    class="secondary-link"
+                    href="{{ site.github_url }}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    GitHub ↗
+                </a>
+            {% endif %}
 
-    {% if site.linkedin_url and site.linkedin_url != '' %}
-        <a
-            class="secondary-link"
-            href="{{ site.linkedin_url }}"
-            target="_blank"
-            rel="noopener"
-        >
-            LinkedIn ↗
-        </a>
-    {% endif %}
+            {% if site.linkedin_url and site.linkedin_url != '' %}
+                <a
+                    class="secondary-link"
+                    href="{{ site.linkedin_url }}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    LinkedIn ↗
+                </a>
+            {% endif %}
 
-    {% if site.email and site.email != '' %}
-        <a
-            class="secondary-link"
-            href="mailto:{{ site.email }}"
-        >
-            Email ↗
-        </a>
-    {% endif %}
+            {% if site.cv_url and site.cv_url != '' %}
+                <a
+                    class="secondary-link"
+                    href="{{ site.cv_url }}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    CV ↗
+                </a>
+            {% endif %}
 
-    {% if site.cv_url and site.cv_url != '' %}
-        <a
-            class="secondary-link"
-            href="{{ site.cv_url }}"
-            target="_blank"
-            rel="noopener"
-        >
-            CV ↗
-        </a>
-    {% endif %}
-
-</div>
+        </div>
 
     </div>
 
