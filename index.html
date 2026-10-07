@@ -5,15 +5,11 @@ title: Home
 
 <section class="hero hero-centered">
 
-    <div class="hero-decor" aria-hidden="true">
-        <span class="floating-shape sparkle sparkle-1"></span>
-        <span class="floating-shape sparkle sparkle-2"></span>
-        <span class="floating-shape cross cross-1"></span>
-        <span class="floating-shape ring ring-1"></span>
-        <span class="floating-shape diamond diamond-1"></span>
-        <span class="floating-shape sparkle sparkle-3"></span>
-        <span class="floating-shape dot dot-1"></span>
-    </div>
+    <canvas
+        class="hero-constellation"
+        id="hero-constellation"
+        aria-hidden="true">
+    </canvas>
 
     <div class="hero-copy">
 
@@ -48,33 +44,16 @@ title: Home
                 </a>
             {% endif %}
 
-            {% if site.linkedin_url and site.linkedin_url != '' %}
-                <a
-                    class="secondary-link"
-                    href="{{ site.linkedin_url }}"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    LinkedIn ↗
-                </a>
-            {% endif %}
-
-            {% if site.cv_url and site.cv_url != '' %}
-                <a
-                    class="secondary-link"
-                    href="{{ site.cv_url }}"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    CV ↗
-                </a>
-            {% endif %}
-
         </div>
 
     </div>
 
 </section>
+
+<script
+    src="{{ '/assets/js/hero-constellation.js' | relative_url }}"
+    defer>
+</script>
 
 
 <section id="research" class="research-section">
