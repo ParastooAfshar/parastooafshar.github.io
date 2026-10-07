@@ -1253,3 +1253,124 @@ main,
     margin-left: auto;
     margin-right: 0;
 }
+.hero-actions .secondary-link {
+    min-width: 118px;
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Minimal fading moving lines */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-line {
+    position: absolute;
+
+    width: 1px;
+    height: 150%;
+
+    top: -25%;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(96, 165, 250, 0.05),
+        rgba(96, 165, 250, 0.32),
+        rgba(96, 165, 250, 0.05),
+        transparent
+    );
+
+    opacity: 0;
+
+    animation: heroLineFade 14s ease-in-out infinite;
+}
+
+.line-one {
+    left: 68%;
+    animation-delay: 0s;
+}
+
+.line-two {
+    left: 79%;
+    animation-delay: -5s;
+}
+
+.line-three {
+    left: 89%;
+    animation-delay: -9s;
+}
+
+@keyframes heroLineFade {
+    0% {
+        transform: translateY(-5%) rotate(10deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.15;
+    }
+
+    45% {
+        transform: translateY(2%) rotate(10deg);
+        opacity: 0.65;
+    }
+
+    70% {
+        opacity: 0.18;
+    }
+
+    100% {
+        transform: translateY(6%) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .line-one {
+        left: 72%;
+    }
+
+    .line-two {
+        left: 86%;
+    }
+
+    .line-three {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-line {
+        animation: none;
+        opacity: 0.18;
+    }
+}
