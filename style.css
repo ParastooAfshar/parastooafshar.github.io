@@ -221,10 +221,12 @@ main,
 
     font-size: 13px;
     font-weight: 600;
+
+    transition: color 150ms ease;
 }
 
 .nav-links a:hover {
-    color: var(--text);
+    color: var(--accent-text);
 }
 
 
@@ -254,11 +256,15 @@ main,
     font: inherit;
     font-size: 12px;
     font-weight: 650;
+
+    transition:
+        border-color 150ms ease,
+        color 150ms ease;
 }
 
 .theme-toggle:hover {
-    border-color: var(--border-strong);
-    background: var(--surface-soft);
+    border-color: var(--accent);
+    color: var(--accent-text);
 }
 
 .theme-symbol {
@@ -268,107 +274,265 @@ main,
 
 
 /* =================================================
-   Hero
+   Centered Hero
 ================================================= */
 
-.hero {
-    min-height: auto;
+.hero.hero-centered {
+    position: relative;
 
-    display: block;
+    min-height: 68vh;
 
-    padding: 82px 0 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 92px 0 88px;
 
     border-bottom: 1px solid var(--border);
+
+    text-align: center;
 }
 
-.hero-copy {
+.hero-centered .hero-copy {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
     max-width: 900px;
+
+    margin-inline: auto;
 }
 
-.eyebrow {
-    margin: 0;
+.hero-centered .eyebrow {
+    margin: 0 0 18px;
 
     color: var(--subtle);
 
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.08em;
 
+    letter-spacing: 0.08em;
     text-transform: none;
 }
 
-.hero h1 {
-    margin: 14px 0 22px;
+.hero-centered h1 {
+    margin: 0;
 
-    font-size: clamp(38px, 4.6vw, 52px);
+    font-size: clamp(48px, 7vw, 78px);
     font-weight: 760;
 
-    line-height: 1.02;
-    letter-spacing: -0.05em;
+    line-height: 1;
+    letter-spacing: -0.055em;
 }
 
-.hero .intro {
-    max-width: 100%;
+.hero-centered .intro {
+    max-width: 760px;
 
-    margin: 0;
+    margin: 28px auto 0;
 
     color: var(--muted);
 
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.75;
     letter-spacing: -0.01em;
 
     white-space: normal;
 }
 
-.hero-actions {
+
+/* =================================================
+   Hero buttons
+================================================= */
+
+.hero-centered .hero-actions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
     gap: 12px;
 
-    margin-top: 32px;
+    margin-top: 34px;
 }
 
-.primary-link,
-.secondary-link {
-    min-height: 40px;
+.hero-centered .hero-actions a {
+    min-width: 118px;
+    min-height: 42px;
 
     display: inline-flex;
     align-items: center;
+    justify-content: center;
 
-    gap: 9px;
+    gap: 8px;
 
-    padding: 0 14px;
+    padding: 0 16px;
 
+    border: 1px solid var(--border);
     border-radius: 10px;
 
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.primary-link {
-    background: var(--text);
-    color: var(--bg);
-}
-
-.primary-link:hover {
-    color: var(--bg);
-    opacity: 0.9;
-}
-
-.secondary-link {
-    border: 1px solid var(--border);
     background: var(--surface);
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        color 160ms ease;
+}
+
+/* only text + border become blue */
+.hero-centered .hero-actions a:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--accent);
+    background: var(--surface);
+
+    color: var(--accent-text);
 }
 
 
-/* Intro stays on one line only when enough room exists */
+/* =================================================
+   Hero floating stars / shapes
+================================================= */
 
-@media (min-width: 900px) {
-    .hero .intro {
-        max-width: none;
-        white-space: nowrap;
+.hero-decor {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.decor-shape {
+    position: absolute;
+
+    color: var(--accent);
+
+    font-family: var(--font-sans);
+    line-height: 1;
+
+    opacity: 0.32;
+
+    user-select: none;
+
+    animation: decorFloat 8s ease-in-out infinite;
+}
+
+
+/* star — upper left */
+
+.decor-1 {
+    top: 16%;
+    left: 12%;
+
+    font-size: 28px;
+
+    opacity: 0.4;
+
+    animation-delay: -1s;
+}
+
+
+/* sparkle — upper right */
+
+.decor-2 {
+    top: 22%;
+    right: 14%;
+
+    font-size: 34px;
+
+    opacity: 0.48;
+
+    animation-delay: -4s;
+}
+
+
+/* plus — middle left */
+
+.decor-3 {
+    top: 50%;
+    left: 17%;
+
+    font-size: 23px;
+
+    opacity: 0.24;
+
+    animation-delay: -2s;
+}
+
+
+/* star — lower right */
+
+.decor-4 {
+    right: 20%;
+    bottom: 18%;
+
+    font-size: 23px;
+
+    opacity: 0.42;
+
+    animation-delay: -5s;
+}
+
+
+/* circle — lower left */
+
+.decor-5 {
+    left: 9%;
+    bottom: 14%;
+
+    font-size: 21px;
+
+    opacity: 0.2;
+
+    animation-delay: -3s;
+}
+
+
+/* sparkle — middle right */
+
+.decor-6 {
+    top: 49%;
+    right: 7%;
+
+    font-size: 26px;
+
+    opacity: 0.3;
+
+    animation-delay: -6s;
+}
+
+
+/* subtle glow */
+
+.decor-1,
+.decor-2,
+.decor-4 {
+    text-shadow:
+        0 0 14px
+        color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+
+@keyframes decorFloat {
+    0%,
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(0, -10px, 0)
+            rotate(8deg)
+            scale(1.08);
     }
 }
 
@@ -413,7 +577,8 @@ main,
 
 .research-card:hover {
     transform: translateY(-2px);
-    border-color: var(--border-strong);
+
+    border-color: var(--accent);
 }
 
 .research-card h3 {
@@ -437,7 +602,7 @@ main,
 
 
 /* =================================================
-   Generic content section
+   Generic homepage sections
 ================================================= */
 
 .content-section {
@@ -467,19 +632,26 @@ main,
 
 
 /* =================================================
-   Home Notes
+   Home Notes + Projects
 ================================================= */
 
-.home-note-list {
+.home-note-list,
+.home-project-list {
+    width: 100%;
+
     display: grid;
 }
 
-.home-note {
+.home-note-list .home-note,
+.home-project-list .home-note {
+    width: 100%;
     max-width: 720px;
 
     margin-left: auto;
     margin-right: 0;
+}
 
+.home-note {
     padding: 24px 0;
 
     border-bottom: 1px solid var(--border);
@@ -510,9 +682,9 @@ main,
 .persian-home-note p {
     margin: 0;
 
-    font-family: var(--font-fa);
-
     color: var(--muted);
+
+    font-family: var(--font-fa);
 
     line-height: 1.9;
 }
@@ -526,9 +698,9 @@ main,
 
     direction: rtl;
 
-    font-family: var(--font-fa);
-
     color: var(--subtle);
+
+    font-family: var(--font-fa);
 
     font-size: 12px;
     line-height: 1.6;
@@ -553,9 +725,14 @@ main,
     font-weight: 700;
 }
 
+.text-link:hover,
+.back-link:hover {
+    color: var(--accent);
+}
+
 
 /* =================================================
-   Notes index
+   Notes / Projects page hero
 ================================================= */
 
 .page-hero {
@@ -582,6 +759,11 @@ main,
     font-size: 18px;
     line-height: 1.9;
 }
+
+
+/* =================================================
+   Notes / Projects list
+================================================= */
 
 .notes-index {
     padding-bottom: 96px;
@@ -627,7 +809,7 @@ main,
 
 
 /* =================================================
-   Persian Notes index
+   Persian Notes / Projects index
 ================================================= */
 
 .persian-notes-page {
@@ -680,7 +862,7 @@ main,
 
 
 /* =================================================
-   Note metadata
+   Metadata
 ================================================= */
 
 .note-meta {
@@ -690,9 +872,9 @@ main,
 
     gap: 7px;
 
-    font-family: var(--font-fa);
-
     color: var(--subtle);
+
+    font-family: var(--font-fa);
 
     font-size: 12px;
     line-height: 1.6;
@@ -713,7 +895,7 @@ main,
 
 
 /* =================================================
-   Individual Persian Note
+   Individual Persian Note / Project
 ================================================= */
 
 .persian-note {
@@ -773,9 +955,9 @@ main,
 
     margin: 0;
 
-    font-family: var(--font-fa);
-
     color: var(--muted);
+
+    font-family: var(--font-fa);
 
     font-size: 16px;
     line-height: 2;
@@ -798,9 +980,9 @@ main,
 
 .persian-note .prose p,
 .persian-note .prose li {
-    font-family: var(--font-fa);
-
     color: var(--text);
+
+    font-family: var(--font-fa);
 }
 
 .persian-note .prose p {
@@ -850,6 +1032,103 @@ main,
 .persian-note .prose pre {
     direction: ltr;
     text-align: left;
+}
+
+
+/* =================================================
+   Project links
+================================================= */
+
+.project-links {
+    width: 100%;
+    max-width: 760px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin: 32px auto 0;
+
+    direction: rtl;
+}
+
+.project-links a {
+    color: var(--accent-text);
+
+    font-family: var(--font-fa);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.project-links a:hover {
+    color: var(--accent);
+}
+
+
+/* =================================================
+   Legacy Projects page compatibility
+================================================= */
+
+.projects-page {
+    padding: 88px 0 96px;
+}
+
+.projects-page-header {
+    margin-bottom: 56px;
+}
+
+.projects-page-header h1 {
+    margin: 0;
+
+    font-size: clamp(42px, 6vw, 60px);
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
+}
+
+.project-list {
+    width: 100%;
+}
+
+.project-row {
+    padding: 28px 0;
+
+    border-top: 1px solid var(--border);
+
+    direction: rtl;
+    text-align: right;
+
+    font-family: var(--font-fa);
+}
+
+.project-row:last-child {
+    border-bottom: 1px solid var(--border);
+}
+
+.project-row h2 {
+    margin: 0 0 8px;
+
+    font-family: var(--font-fa);
+
+    font-size: 23px;
+    font-weight: 700;
+
+    line-height: 1.6;
+}
+
+.project-row p {
+    max-width: 680px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-family: var(--font-fa);
+
+    font-size: 15px;
+    line-height: 1.9;
 }
 
 
@@ -959,85 +1238,302 @@ main,
 
     /* Hero */
 
-    .hero {
-        padding: 64px 0 58px;
+    .hero.hero-centered {
+        min-height: 62vh;
+
+        padding: 72px 0 64px;
     }
 
-    .hero-copy {
-        max-width: 100%;
+    .hero-centered .eyebrow {
+        font-size: 9px;
     }
 
-    .hero h1 {
-        font-size: clamp(38px, 12vw, 48px);
-
-        line-height: 1.05;
+    .hero-centered h1 {
+        font-size: clamp(42px, 14vw, 58px);
     }
 
-    .hero .intro {
-        max-width: 100%;
+    .hero-centered .intro {
+        max-width: 92%;
 
-        white-space: normal;
+        margin-top: 22px;
 
         font-size: 16px;
         line-height: 1.7;
-
-        overflow-wrap: break-word;
     }
 
-    .hero-actions {
+    .hero-centered .hero-actions {
         margin-top: 28px;
     }
 
-
-    /* Content */
-
-    .content-section {
-        grid-template-columns: 1fr;
-
-        gap: 24px;
-
-        padding: 46px 0;
+    .hero-centered .hero-actions a {
+        min-width: 104px;
     }
 
+/* =================================================
+   Hero decorative shapes
+================================================= */
 
-    /* Notes */
+.hero-decor {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 
-    .page-hero {
-        padding: 64px 0 48px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-shape {
+    position: absolute;
+
+    color: var(--accent);
+
+    opacity: 0.42;
+
+    animation: shapeFloat 9s ease-in-out infinite;
+}
+
+
+/* -------------------------------------------------
+   4-point sparkle
+------------------------------------------------- */
+
+.sparkle {
+    width: 28px;
+    height: 28px;
+
+    background: currentColor;
+
+    clip-path: polygon(
+        50% 0%,
+        58% 39%,
+        100% 50%,
+        58% 61%,
+        50% 100%,
+        42% 61%,
+        0% 50%,
+        42% 39%
+    );
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            color-mix(in srgb, var(--accent) 28%, transparent)
+        );
+}
+
+.sparkle-1 {
+    top: 18%;
+    left: 11%;
+
+    width: 26px;
+    height: 26px;
+
+    opacity: 0.38;
+
+    animation-delay: -2s;
+}
+
+.sparkle-2 {
+    top: 23%;
+    right: 13%;
+
+    width: 38px;
+    height: 38px;
+
+    opacity: 0.5;
+
+    animation-delay: -6s;
+}
+
+.sparkle-3 {
+    right: 21%;
+    bottom: 15%;
+
+    width: 20px;
+    height: 20px;
+
+    opacity: 0.34;
+
+    animation-delay: -4s;
+}
+
+
+/* -------------------------------------------------
+   Cross
+------------------------------------------------- */
+
+.cross {
+    width: 24px;
+    height: 24px;
+}
+
+.cross::before,
+.cross::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-radius: 999px;
+
+    background: currentColor;
+
+    transform: translate(-50%, -50%);
+}
+
+.cross::before {
+    width: 24px;
+    height: 2px;
+}
+
+.cross::after {
+    width: 2px;
+    height: 24px;
+}
+
+.cross-1 {
+    top: 55%;
+    left: 17%;
+
+    opacity: 0.27;
+
+    transform: rotate(18deg);
+
+    animation-delay: -7s;
+}
+
+
+/* -------------------------------------------------
+   Ring
+------------------------------------------------- */
+
+.ring {
+    width: 22px;
+    height: 22px;
+
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+
+    background: transparent;
+}
+
+.ring-1 {
+    left: 8%;
+    bottom: 14%;
+
+    opacity: 0.24;
+
+    animation-delay: -3s;
+}
+
+
+/* -------------------------------------------------
+   Diamond
+------------------------------------------------- */
+
+.diamond {
+    width: 13px;
+    height: 13px;
+
+    border: 1.5px solid currentColor;
+
+    transform: rotate(45deg);
+
+    background: transparent;
+}
+
+.diamond-1 {
+    top: 45%;
+    right: 7%;
+
+    opacity: 0.3;
+
+    animation-delay: -5s;
+}
+
+
+/* -------------------------------------------------
+   Dot
+------------------------------------------------- */
+
+.dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    box-shadow:
+        0 0 12px
+        color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.dot-1 {
+    top: 70%;
+    right: 10%;
+
+    opacity: 0.5;
+
+    animation-delay: -1s;
+}
+
+
+/* -------------------------------------------------
+   Motion
+------------------------------------------------- */
+
+@keyframes shapeFloat {
+    0%,
+    100% {
+        translate: 0 0;
+        rotate: 0deg;
     }
 
-    .page-hero h1 {
-        font-size: 40px;
+    50% {
+        translate: 0 -12px;
+        rotate: 7deg;
+    }
+}
+
+
+/* =================================================
+   Mobile decorative shapes
+================================================= */
+
+@media (max-width: 700px) {
+
+    .sparkle-1 {
+        top: 15%;
+        left: 4%;
+
+        width: 20px;
+        height: 20px;
     }
 
-    .persian-note {
-        padding: 54px 0 80px;
+    .sparkle-2 {
+        top: 18%;
+        right: 4%;
+
+        width: 28px;
+        height: 28px;
     }
 
-    .persian-note .note-header h1 {
-        font-size: 34px;
+    .sparkle-3 {
+        right: 8%;
+        bottom: 12%;
     }
 
-    .persian-note .prose {
-        padding-top: 36px;
-
-        font-size: 17px;
-        line-height: 2.05;
+    .cross-1 {
+        left: 6%;
+        top: 68%;
     }
 
-    .persian-note .prose h2 {
-        font-size: 22px;
-    }
-
-    .persian-note .prose h3 {
-        font-size: 19px;
-    }
-
-
-    /* Footer */
-
-    .footer-inner {
-        min-height: 86px;
+    .ring-1,
+    .diamond-1,
+    .dot-1 {
+        display: none;
     }
 }
 
@@ -1047,456 +1543,7 @@ main,
 ================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    * {
-        transition: none !important;
-    }
-}
-/* =================================================
-   Projects
-================================================= */
-
-.projects-page {
-    padding: 88px 0 96px;
-}
-
-.projects-page-header {
-    margin-bottom: 56px;
-}
-
-.projects-page-header h1 {
-    margin: 0;
-
-    font-size: clamp(42px, 6vw, 60px);
-    font-weight: 700;
-
-    letter-spacing: -0.04em;
-}
-
-.project-list {
-    width: 100%;
-}
-
-.project-row {
-    padding: 28px 0;
-
-    border-top: 1px solid var(--border);
-
-    direction: rtl;
-    text-align: right;
-
-    font-family: var(--font-fa);
-}
-
-.project-row:last-child {
-    border-bottom: 1px solid var(--border);
-}
-
-.project-row h2 {
-    margin: 0 0 8px;
-
-    font-family: var(--font-fa);
-
-    font-size: 23px;
-    font-weight: 700;
-
-    line-height: 1.6;
-}
-
-.project-row p {
-    max-width: 680px;
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-family: var(--font-fa);
-
-    font-size: 15px;
-    line-height: 1.9;
-}
-
-
-/* Individual project */
-
-.project-page {
-    width: 100%;
-    max-width: 760px;
-
-    margin-inline: auto;
-
-    padding: 72px 0 110px;
-
-    direction: rtl;
-    text-align: right;
-
-    font-family: var(--font-fa);
-}
-
-.project-back-link {
-    display: inline-flex;
-
-    margin-bottom: 48px;
-
-    color: var(--accent-text);
-
-    font-family: var(--font-fa);
-
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.project-header {
-    padding-bottom: 38px;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.project-header h1 {
-    margin: 0 0 16px;
-
-    font-family: var(--font-fa);
-
-    font-size: clamp(38px, 5vw, 52px);
-    font-weight: 700;
-
-    line-height: 1.5;
-}
-
-.project-header p {
-    margin: 0;
-
-    color: var(--muted);
-
-    font-family: var(--font-fa);
-
-    font-size: 16px;
-    line-height: 2;
-}
-
-.project-content {
-    padding-top: 40px;
-
-    font-family: var(--font-fa);
-
-    font-size: 17px;
-    line-height: 2.1;
-}
-
-.project-content p {
-    margin: 0 0 1.5em;
-}
-
-.project-github {
-    display: inline-flex;
-
-    margin-top: 32px;
-
-    color: var(--accent-text);
-
-    font-family: var(--font-fa);
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-
-/* Mobile */
-
-@media (max-width: 700px) {
-    .projects-page {
-        padding: 64px 0 80px;
-    }
-
-    .projects-page-header {
-        margin-bottom: 40px;
-    }
-
-    .projects-page-header h1 {
-        font-size: 40px;
-    }
-
-    .project-page {
-        padding: 54px 0 80px;
-    }
-
-    .project-header h1 {
-        font-size: 34px;
-    }
-}
-.project-links {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    margin-top: 32px;
-}
-
-.project-links a {
-    color: var(--accent-text);
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.home-note-list,
-.home-project-list {
-    width: 100%;
-}
-
-.home-note-list .home-note,
-.home-project-list .home-note {
-    width: 100%;
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: 0;
-}
-.hero-actions .secondary-link {
-    min-width: 118px;
-    min-height: 42px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0 16px;
-
-    border: 1px solid var(--border);
-    border-radius: 10px;
-
-    background: var(--surface);
-    color: var(--text);
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-/* =================================================
-   Hero floating shapes
-================================================= */
-
-.hero-centered {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-centered .hero-copy {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-shapes {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.hero-shape {
-    position: absolute;
-
-    border: 1px solid
-        color-mix(in srgb, var(--accent) 32%, transparent);
-
-    background:
-        color-mix(in srgb, var(--accent) 5%, transparent);
-
-    box-shadow:
-        0 0 80px
-        color-mix(in srgb, var(--accent) 8%, transparent);
-
-    opacity: 0.7;
-
-    animation:
-        heroShapeFloat 16s ease-in-out infinite,
-        heroShapeMorph 12s ease-in-out infinite alternate;
-}
-
-
-/* large shape — top right */
-
-.shape-one {
-    width: 420px;
-    height: 420px;
-
-    top: -190px;
-    right: -100px;
-
-    border-radius:
-        42% 58% 65% 35%
-        / 45% 40% 60% 55%;
-}
-
-
-/* middle / left */
-
-.shape-two {
-    width: 300px;
-    height: 300px;
-
-    left: -120px;
-    bottom: -100px;
-
-    border-radius:
-        60% 40% 38% 62%
-        / 55% 62% 38% 45%;
-
-    opacity: 0.45;
-
-    animation-delay: -6s;
-}
-
-
-/* smaller shape */
-
-.shape-three {
-    width: 190px;
-    height: 190px;
-
-    right: 18%;
-    bottom: -80px;
-
-    border-radius:
-        37% 63% 55% 45%
-        / 64% 42% 58% 36%;
-
-    opacity: 0.35;
-
-    animation-delay: -10s;
-}
-
-
-@keyframes heroShapeFloat {
-    0%,
-    100% {
-        transform:
-            translate3d(0, 0, 0)
-            rotate(0deg);
-    }
-
-    50% {
-        transform:
-            translate3d(18px, -20px, 0)
-            rotate(7deg);
-    }
-}
-
-
-@keyframes heroShapeMorph {
-    0% {
-        border-radius:
-            42% 58% 65% 35%
-            / 45% 40% 60% 55%;
-    }
-
-    100% {
-        border-radius:
-            58% 42% 38% 62%
-            / 60% 52% 48% 40%;
-    }
-}
-
-
-/* Mobile */
-
-@media (max-width: 700px) {
-
-    .shape-one {
-        width: 290px;
-        height: 290px;
-
-        top: -120px;
-        right: -130px;
-    }
-
-    .shape-two {
-        width: 230px;
-        height: 230px;
-
-        left: -150px;
-        bottom: -60px;
-    }
-
-    .shape-three {
-        width: 130px;
-        height: 130px;
-
-        right: 4%;
-        bottom: -50px;
-    }
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-
-    .hero-shape {
+    .floating-shape {
         animation: none;
-    }
-}
-
-/* Final centered hero */
-
-.hero.hero-centered {
-    min-height: 68vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 92px 0 88px;
-
-    text-align: center;
-}
-
-.hero-centered .hero-copy {
-    width: 100%;
-    max-width: 900px;
-
-    margin-inline: auto;
-}
-
-.hero-centered .eyebrow {
-    margin: 0 0 18px;
-}
-
-.hero-centered h1 {
-    margin: 0;
-
-    font-size: clamp(48px, 7vw, 78px);
-    line-height: 1;
-}
-
-.hero-centered .intro {
-    max-width: 760px;
-
-    margin: 28px auto 0;
-
-    white-space: normal;
-
-    font-size: 17px;
-}
-
-.hero-centered .hero-actions {
-    justify-content: center;
-    margin-top: 34px;
-}
-
-@media (max-width: 700px) {
-    .hero.hero-centered {
-        min-height: 62vh;
-        padding: 72px 0 64px;
-    }
-
-    .hero-centered h1 {
-        font-size: clamp(42px, 14vw, 58px);
-    }
-
-    .hero-centered .intro {
-        max-width: 92%;
-        font-size: 16px;
     }
 }
