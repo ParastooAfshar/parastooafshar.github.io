@@ -1274,13 +1274,173 @@ main,
 }
 
 /* =================================================
-   Centered Hero
+   Hero floating shapes
 ================================================= */
 
 .hero-centered {
     position: relative;
     overflow: hidden;
+}
 
+.hero-centered .hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-shapes {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-shape {
+    position: absolute;
+
+    border: 1px solid
+        color-mix(in srgb, var(--accent) 32%, transparent);
+
+    background:
+        color-mix(in srgb, var(--accent) 5%, transparent);
+
+    box-shadow:
+        0 0 80px
+        color-mix(in srgb, var(--accent) 8%, transparent);
+
+    opacity: 0.7;
+
+    animation:
+        heroShapeFloat 16s ease-in-out infinite,
+        heroShapeMorph 12s ease-in-out infinite alternate;
+}
+
+
+/* large shape — top right */
+
+.shape-one {
+    width: 420px;
+    height: 420px;
+
+    top: -190px;
+    right: -100px;
+
+    border-radius:
+        42% 58% 65% 35%
+        / 45% 40% 60% 55%;
+}
+
+
+/* middle / left */
+
+.shape-two {
+    width: 300px;
+    height: 300px;
+
+    left: -120px;
+    bottom: -100px;
+
+    border-radius:
+        60% 40% 38% 62%
+        / 55% 62% 38% 45%;
+
+    opacity: 0.45;
+
+    animation-delay: -6s;
+}
+
+
+/* smaller shape */
+
+.shape-three {
+    width: 190px;
+    height: 190px;
+
+    right: 18%;
+    bottom: -80px;
+
+    border-radius:
+        37% 63% 55% 45%
+        / 64% 42% 58% 36%;
+
+    opacity: 0.35;
+
+    animation-delay: -10s;
+}
+
+
+@keyframes heroShapeFloat {
+    0%,
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translate3d(18px, -20px, 0)
+            rotate(7deg);
+    }
+}
+
+
+@keyframes heroShapeMorph {
+    0% {
+        border-radius:
+            42% 58% 65% 35%
+            / 45% 40% 60% 55%;
+    }
+
+    100% {
+        border-radius:
+            58% 42% 38% 62%
+            / 60% 52% 48% 40%;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .shape-one {
+        width: 290px;
+        height: 290px;
+
+        top: -120px;
+        right: -130px;
+    }
+
+    .shape-two {
+        width: 230px;
+        height: 230px;
+
+        left: -150px;
+        bottom: -60px;
+    }
+
+    .shape-three {
+        width: 130px;
+        height: 130px;
+
+        right: 4%;
+        bottom: -50px;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-shape {
+        animation: none;
+    }
+}
+
+/* Final centered hero */
+
+.hero.hero-centered {
     min-height: 68vh;
 
     display: flex;
@@ -1290,14 +1450,9 @@ main,
     padding: 92px 0 88px;
 
     text-align: center;
-
-    border-bottom: 1px solid var(--border);
 }
 
 .hero-centered .hero-copy {
-    position: relative;
-    z-index: 2;
-
     width: 100%;
     max-width: 900px;
 
@@ -1306,22 +1461,13 @@ main,
 
 .hero-centered .eyebrow {
     margin: 0 0 18px;
-
-    color: var(--subtle);
-
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
 }
 
 .hero-centered h1 {
     margin: 0;
 
     font-size: clamp(48px, 7vw, 78px);
-    font-weight: 760;
-
     line-height: 1;
-    letter-spacing: -0.055em;
 }
 
 .hero-centered .intro {
@@ -1329,169 +1475,20 @@ main,
 
     margin: 28px auto 0;
 
-    color: var(--muted);
+    white-space: normal;
 
     font-size: 17px;
-    line-height: 1.75;
-
-    white-space: normal;
 }
 
 .hero-centered .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-
-    gap: 12px;
-
     margin-top: 34px;
 }
 
-.hero-centered .secondary-link,
-.hero-centered .primary-link {
-    min-width: 118px;
-    min-height: 42px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0 16px;
-
-    border: 1px solid var(--border);
-    border-radius: 10px;
-
-    background: var(--surface);
-    color: var(--text);
-
-    font-size: 13px;
-    font-weight: 700;
-
-    transition:
-        transform 160ms ease,
-        border-color 160ms ease,
-        background-color 160ms ease;
-}
-
-.hero-centered .secondary-link:hover,
-.hero-centered .primary-link:hover {
-    transform: translateY(-2px);
-
-    border-color: var(--accent);
-    background: var(--surface-soft);
-
-    color: var(--text);
-}
-
-
-/* =================================================
-   Animated blue lines
-================================================= */
-
-.hero-centered .hero-lines {
-    position: absolute;
-    inset: 0;
-
-    overflow: hidden;
-
-    pointer-events: none;
-}
-
-.hero-centered .hero-line {
-    position: absolute;
-
-    width: 1.5px;
-
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(96, 165, 250, 0.08),
-        rgba(96, 165, 250, 0.55),
-        rgba(96, 165, 250, 0.08),
-        transparent
-    );
-
-    box-shadow: 0 0 12px rgba(96, 165, 250, 0.12);
-
-    opacity: 0;
-
-    transform-origin: center;
-
-    animation: centeredHeroLine 15s ease-in-out infinite;
-}
-
-.hero-centered .line-one {
-    left: 14%;
-    top: -20%;
-    height: 135%;
-
-    animation-delay: -2s;
-}
-
-.hero-centered .line-two {
-    left: 36%;
-    top: 18%;
-    height: 105%;
-
-    animation-delay: -8s;
-}
-
-.hero-centered .line-three {
-    left: 69%;
-    top: -12%;
-    height: 140%;
-
-    animation-delay: -5s;
-}
-
-.hero-centered .line-four {
-    left: 88%;
-    top: 32%;
-    height: 86%;
-
-    animation-delay: -11s;
-}
-
-@keyframes centeredHeroLine {
-    0% {
-        transform: translateY(-7%) rotate(10deg);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 0.2;
-    }
-
-    45% {
-        transform: translateY(2%) rotate(9deg);
-        opacity: 0.7;
-    }
-
-    72% {
-        opacity: 0.25;
-    }
-
-    100% {
-        transform: translateY(8%) rotate(11deg);
-        opacity: 0;
-    }
-}
-
-
-/* =================================================
-   Centered Hero — Mobile
-================================================= */
-
 @media (max-width: 700px) {
-
-    .hero-centered {
+    .hero.hero-centered {
         min-height: 62vh;
-
         padding: 72px 0 64px;
-    }
-
-    .hero-centered .eyebrow {
-        font-size: 10px;
     }
 
     .hero-centered h1 {
@@ -1500,43 +1497,6 @@ main,
 
     .hero-centered .intro {
         max-width: 92%;
-
-        margin-top: 22px;
-
         font-size: 16px;
-        line-height: 1.7;
-    }
-
-    .hero-centered .hero-actions {
-        margin-top: 28px;
-    }
-
-    .hero-centered .secondary-link,
-    .hero-centered .primary-link {
-        min-width: 104px;
-    }
-
-    .hero-centered .line-one {
-        left: 5%;
-    }
-
-    .hero-centered .line-two {
-        left: 34%;
-    }
-
-    .hero-centered .line-three {
-        left: 72%;
-    }
-
-    .hero-centered .line-four {
-        left: 94%;
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-centered .hero-line {
-        animation: none;
-        opacity: 0.15;
-    }
-}
-
