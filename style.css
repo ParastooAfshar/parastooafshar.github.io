@@ -1034,6 +1034,27 @@ main,
     text-align: left;
 }
 
+.persian-note .prose a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: color-mix(
+        in srgb,
+        var(--accent) 55%,
+        transparent
+    );
+
+    transition:
+        color 150ms ease,
+        text-decoration-color 150ms ease;
+}
+
+.persian-note .prose a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
 
 /* =================================================
    Project links
@@ -1294,4 +1315,20 @@ main,
 .hero-centered .hero-copy {
     position: relative;
     z-index: 2;
+}
+
+.persian-note .prose .ltr-block {
+    direction: ltr;
+    text-align: left;
+    font-family: var(--font-sans);
+}
+
+.persian-note .prose .ltr-block ul,
+.persian-note .prose .ltr-block ol {
+    padding-left: 1.4rem;
+    padding-right: 0;
+}
+
+.persian-note .prose .ltr-block li {
+    text-align: left;
 }

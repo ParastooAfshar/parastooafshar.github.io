@@ -198,16 +198,18 @@ Dataset هنوز باید دقیق‌تر بررسی بشه.
 
 ## چیزهایی که بهشون اشاره کردم توی متن
 
+<div class="ltr-block" lang="en" dir="ltr" markdown="1">
+
 - [E4R-Reviewer: Effective and Explainable Automated Code Review via End-to-End Reasoning-Guided Alignment](https://doi.org/10.1145/3832096)  
   Liu et al. — ISSTA 2026
 
-- [E4R-Reviewer Replication Package](https://doi.org/10.5281/zenodo.18417185)  
-  کد، داده و artifactهای مربوط به E4R
+- [E4R-Reviewer Replication Package](https://doi.org/10.5281/zenodo.18417185)
 
 - [Fine-Tuning Large Language Models to Improve Accuracy and Comprehensibility of Automated Code Review (Carllm)](https://doi.org/10.1145/3695993)  
   Yu et al. — ACM Transactions on Software Engineering and Methodology
 
 - [Carllm Replication Package](https://github.com/aiopsplus/Carllm)
 
-- [Learning to Self-Verify Makes Language Models Better Reasoners](https://proceedings.mlr.press/v306/chen26es.html)  
-  کاری درباره‌ی Self-Verification در مدل‌های زبانی
+- [Learning to Self-Verify Makes Language Models Better Reasoners](https://proceedings.mlr.press/v306/chen26es.html)
+
+</div>
