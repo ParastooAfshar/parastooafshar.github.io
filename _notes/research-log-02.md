@@ -5,20 +5,19 @@ jalali_date: "۲۵ مهر ۱۴۰۵"
 description: "چند فکر پراکنده درباره‌ی مسیری که شاید به سرانجام برسد"
 ---
 
-<div class="note-toc">
-
-### فهرست
-
-- [اصلاً چرا چندمرحله‌ای؟](#why-multistage)
-- [اولین چیزی که دلم می‌خواد بفهمم](#first-question)
-- [اگر موقتاً یک مرحله رو درست کنیم چی؟](#oracle)
-- [بعدش Self-Verification وارد می‌شه](#self-verification)
-- [یه نکته‌ی مهم دیگه: هزینه](#cost)
-- [دیتاست هم خودش یه داستانه](#dataset)
-- [چیزی که فعلاً می‌خوام از این ایده دربیاد](#questions)
-- [چیزهایی که بهشون اشاره کردم توی متن](#references)
-
-</div>
+<nav class="note-toc" aria-label="فهرست">
+  <h3>فهرست</h3>
+  <ul>
+    <li><a href="#why-multistage">اصلاً چرا چندمرحله‌ای؟</a></li>
+    <li><a href="#first-question">اولین چیزی که دلم می‌خواد بفهمم</a></li>
+    <li><a href="#oracle">اگر موقتاً یک مرحله رو درست کنیم چی؟</a></li>
+    <li><a href="#self-verification">بعدش Self-Verification وارد می‌شه</a></li>
+    <li><a href="#cost">یه نکته‌ی مهم دیگه: هزینه</a></li>
+    <li><a href="#dataset">دیتاست هم خودش یه داستانه</a></li>
+    <li><a href="#questions">چیزی که فعلاً می‌خوام از این ایده دربیاد</a></li>
+    <li><a href="#references">چیزهایی که بهشون اشاره کردم توی متن</a></li>
+  </ul>
+</nav>
 
 این نوشته هنوز موضوع قطعی پایان‌نامه‌ام نیست. پروپوزالم هم هنوز تأیید نشده و احتمالاً خیلی چیزها تا نسخه‌ی نهایی تغییر می‌کنن، ولی این چند روز یک ایده بیشتر از بقیه توی ذهنم مونده و گفتم قبل از اینکه وسط فایل‌ها و مقاله‌ها گم بشه، همینجا ثبتش کنم.
 
@@ -227,20 +226,26 @@ Dataset هنوز باید دقیق‌تر بررسی بشه.
 
 ## چیزهایی که بهشون اشاره کردم توی متن
 
-<div class="ltr-block" dir="ltr" lang="en" markdown="1">
-
-- [E4R-Reviewer: Effective and Explainable Automated Code Review via End-to-End Reasoning-Guided Alignment](https://doi.org/10.1145/3832096)  
-  Liu et al. — ISSTA 2026
-
-- [E4R-Reviewer Replication Package](https://doi.org/10.5281/zenodo.18417185)
-
-- [Fine-Tuning Large Language Models to Improve Accuracy and Comprehensibility of Automated Code Review (Carllm)](https://doi.org/10.1145/3695993)  
-  Yu et al. — ACM Transactions on Software Engineering and Methodology
-
-- [Carllm Replication Package](https://github.com/aiopsplus/Carllm)
-
-- [Learning to Self-Verify Makes Language Models Better Reasoners](https://proceedings.mlr.press/v306/chen26es.html)
-
+<div class="ltr-block" dir="ltr" lang="en">
+  <ul>
+    <li>
+      <a href="https://doi.org/10.1145/3832096">E4R-Reviewer: Effective and Explainable Automated Code Review via End-to-End Reasoning-Guided Alignment</a><br>
+      Liu et al. — ISSTA 2026
+    </li>
+    <li>
+      <a href="https://doi.org/10.5281/zenodo.18417185">E4R-Reviewer Replication Package</a>
+    </li>
+    <li>
+      <a href="https://doi.org/10.1145/3695993">Fine-Tuning Large Language Models to Improve Accuracy and Comprehensibility of Automated Code Review (Carllm)</a><br>
+      Yu et al. — ACM Transactions on Software Engineering and Methodology
+    </li>
+    <li>
+      <a href="https://github.com/aiopsplus/Carllm">Carllm Replication Package</a>
+    </li>
+    <li>
+      <a href="https://proceedings.mlr.press/v306/chen26es.html">Learning to Self-Verify Makes Language Models Better Reasoners</a>
+    </li>
+  </ul>
 </div>
 
 ---

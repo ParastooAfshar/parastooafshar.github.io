@@ -1339,39 +1339,48 @@ main,
     text-align: left !important;
 }
 
-/* Note table of contents */
 .persian-note .prose .note-toc {
     margin: 0 0 48px;
-    padding: 22px 24px;
+    padding: 24px 28px;
 
     border: 1px solid var(--border);
     border-radius: 14px;
 
     background: var(--surface-soft);
+
+    direction: rtl;
+    text-align: right;
 }
 
 .persian-note .prose .note-toc h3 {
-    margin: 0 0 14px;
+    margin: 0 0 16px;
 
     font-family: var(--font-fa);
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
 }
 
 .persian-note .prose .note-toc ul {
     margin: 0;
-    padding-right: 1.2rem;
+    padding: 0;
+
+    list-style: none;
 }
 
 .persian-note .prose .note-toc li {
-    margin-bottom: 7px;
+    margin: 0;
+    padding: 7px 0;
+
+    border-bottom: 1px solid var(--border);
 }
 
 .persian-note .prose .note-toc li:last-child {
-    margin-bottom: 0;
+    border-bottom: 0;
 }
 
 .persian-note .prose .note-toc a {
+    display: inline-block;
+
     color: var(--muted);
     text-decoration: none;
 }
