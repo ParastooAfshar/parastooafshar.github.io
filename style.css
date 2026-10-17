@@ -1340,11 +1340,11 @@ main,
 }
 
 .persian-note .prose .note-toc {
-    margin: 0 0 48px;
-    padding: 24px 28px;
+    margin: 0 0 38px;
+    padding: 18px 22px;
 
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 12px;
 
     background: var(--surface-soft);
 
@@ -1353,10 +1353,10 @@ main,
 }
 
 .persian-note .prose .note-toc h3 {
-    margin: 0 0 16px;
+    margin: 0 0 10px;
 
     font-family: var(--font-fa);
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
 }
 
@@ -1369,7 +1369,7 @@ main,
 
 .persian-note .prose .note-toc li {
     margin: 0;
-    padding: 7px 0;
+    padding: 5px 0;
 
     border-bottom: 1px solid var(--border);
 }
@@ -1383,6 +1383,9 @@ main,
 
     color: var(--muted);
     text-decoration: none;
+
+    font-size: 14px;
+    line-height: 1.8;
 }
 
 .persian-note .prose .note-toc a:hover {
