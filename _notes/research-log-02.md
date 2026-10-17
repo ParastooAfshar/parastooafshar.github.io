@@ -116,7 +116,7 @@ UNCERTAIN
 
 برای همین فعلاً Self-Verification رو بیشتر به چشم **یک سؤال آزمایشی** می‌بینم تا یک راه‌حل از قبل برنده.
 
-یکی از کارهایی که در این زمینه جالبه، مقاله‌ی [Learning to Self-Verify Makes Language Models Better Reasoners](https://proceedings.mlr.press/v306/chen26es.html) ـه که مشخصاً روی توانایی self-verification در مدل‌های زبانی کار می‌کنه.
+یکی از کارهایی که در این زمینه جالبه، مقاله‌ی [Learning to Self-Verify Makes Language Models Better Reasoners](https://proceedings.mlr.press/v306/chen26es.html) عه که مشخصاً روی توانایی self-verification در مدل‌های زبانی کار می‌کنه.
 
 ## یه نکته‌ی مهم دیگه: هزینه
 
@@ -198,7 +198,7 @@ Dataset هنوز باید دقیق‌تر بررسی بشه.
 
 ## چیزهایی که بهشون اشاره کردم توی متن
 
-<div class="ltr-block" lang="en" dir="ltr" markdown="1">
+<div class="ltr-block" dir="ltr" lang="en" markdown="1">
 
 - [E4R-Reviewer: Effective and Explainable Automated Code Review via End-to-End Reasoning-Guided Alignment](https://doi.org/10.1145/3832096)  
   Liu et al. — ISSTA 2026

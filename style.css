@@ -1317,18 +1317,24 @@ main,
     z-index: 2;
 }
 
+/* English / LTR blocks inside Persian notes */
 .persian-note .prose .ltr-block {
-    direction: ltr;
-    text-align: left;
+    direction: ltr !important;
+    text-align: left !important;
     font-family: var(--font-sans);
 }
 
 .persian-note .prose .ltr-block ul,
 .persian-note .prose .ltr-block ol {
-    padding-left: 1.4rem;
-    padding-right: 0;
+    direction: ltr !important;
+    text-align: left !important;
+
+    padding-left: 1.5rem !important;
+    padding-right: 0 !important;
 }
 
-.persian-note .prose .ltr-block li {
-    text-align: left;
+.persian-note .prose .ltr-block li,
+.persian-note .prose .ltr-block p {
+    direction: ltr !important;
+    text-align: left !important;
 }
